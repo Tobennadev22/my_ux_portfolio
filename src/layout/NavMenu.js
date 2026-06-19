@@ -85,13 +85,13 @@ export default function NavMenu() {
                 className={({ isActive }) =>
                   !isActive ? "active-link" : undefined
                 }
-                sx={{
-                  "&.active-link": {
-                    bg: "primaryColor.400",
-                    color: "gray.100",
-                    textDecoration: "none",
-                  },
-                }}
+                // sx={{
+                //   "&.active-link": {
+                //     bg: "primaryColor.400",
+                //     color: "gray.100",
+                //     textDecoration: "none",
+                //   },
+                // }}
               >
                 Home
               </ChakraLink>
