@@ -1,8 +1,8 @@
 import Header from "../components/Header";
 import Main from "../components/Main";
-import Footer from "../components/Footer";
+
 import { Box } from "@chakra-ui/react";
-// import Clients from "../layout/Clients";
+import Clients from "../layout/Clients";
 import Motion from "../layout/Motion";
 
 function Home() {
@@ -11,9 +11,7 @@ function Home() {
       <Header />
       <Motion />
       <Main />
-      {/* <Clients /> */}
-
-      <Footer />
+      <Clients />
     </Box>
   );
 }

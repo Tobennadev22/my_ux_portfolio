@@ -1,11 +1,11 @@
-import { Box, VStack, Text } from "@chakra-ui/react";
+import { Box, VStack, Text, Container } from "@chakra-ui/react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
 import myImage from "../assets/bg-toby.png";
 
 const steps = [
   "Oh! I forgot to mention to you",
-  "Something I don't want to keep as a secret🔐",
+  "Something I don't want to keep as a secret 🗝️",
   "I know you want to know",
   "I wrote my portfolio with react. My first frontend project😊",
 ];
@@ -27,18 +27,22 @@ export default function StickyScroller() {
       const sectionHeight = containerHeight / steps.length;
       const index = Math.min(
         steps.length - 1,
-        Math.floor(scrollPosition / sectionHeight)
+        Math.floor(scrollPosition / sectionHeight),
       );
       setActiveIndex(index);
     }
   });
 
   return (
-    <Box
+    <Container
+      maxW={{ base: "100%", md: "1200px" }}
+      borderRadius="20px"
       ref={containerRef}
-      h={`${steps.length * 120}vh`}
+      h={`${steps.length * 110}vh`}
+      backgroundImage="linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)"
+      color="#29292A"
       position="relative"
-      backgroundImage={`url(${myImage})`}
+      // backgroundImage={`url(${myImage})`}
       // backgroundColor="#f9f9f9"
       backgroundSize="cover"
       backgroundPosition="center"
@@ -48,13 +52,19 @@ export default function StickyScroller() {
         as={motion.div}
         position="sticky"
         top="0"
-        h="70vh"
+        h="100vh"
         display="flex"
         alignItems="center"
         justifyContent="center"
         overflow="hidden"
       >
-        <VStack spacing={0} w="100%" h="100%" justify="center">
+        <VStack
+          spacing={0}
+          w="100%"
+          h="100%"
+          justify="center"
+          alignItems="center"
+        >
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -70,13 +80,13 @@ export default function StickyScroller() {
                 textAlign: "center",
               }}
             >
-              <Text fontSize="5xl" fontWeight="Semibold">
+              <Text fontSize="4xl" fontWeight="light">
                 {step}
               </Text>
             </motion.div>
           ))}
         </VStack>
       </Box>
-    </Box>
+    </Container>
   );
 }

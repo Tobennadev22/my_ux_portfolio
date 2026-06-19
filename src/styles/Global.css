@@ -1,11 +1,9 @@
-html,
+/* html,
 body {
-  font-family: "inter";
-  /* background-color: #05202e !important;
-  color: #ffff !important; */
-}
+  background-color: #0d1316 !important;
+} */
 
-.isActive {
+.active-link {
   padding: 6px 12px;
   background-color: "#fefcca";
 }
@@ -86,7 +84,9 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(80px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 }
 
 .reveal.visible {
@@ -99,7 +99,9 @@ body {
 .revealRight {
   opacity: 0;
   transform: translateX(-80px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 }
 
 .revealRight.visibleRight {
@@ -124,4 +126,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* SPINNER */
+
+.spinner {
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.spinner img {
+  margin: 0 auto;
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 48%;
 }

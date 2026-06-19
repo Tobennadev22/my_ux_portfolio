@@ -24,6 +24,12 @@ const skills = [
   "HTML",
   "CSS",
   "REACT",
+  "NextJS",
+  "Chakra UI",
+  "Google Stitch",
+  "ChatGPT",
+  "Claude MCP",
+  "Figma MCP",
 ];
 
 // Main Header component

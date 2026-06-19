@@ -1,7 +1,9 @@
 import { Link as ReactRouterLink } from "react-router-dom";
+import { useState } from "react";
+// import { NavLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { Link as ScrollLink } from "react-scroll";
-// import Logo from "../assets/tobymileslogo.png";
+import Logo from "../icons/tobelogo.png";
 import "../styles/Global.css";
 import {
   Box,
@@ -14,7 +16,6 @@ import {
   HStack,
   useColorModeValue,
   CloseButton,
-  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
@@ -25,7 +26,7 @@ const NavLink = ({ children }) => (
     rounded={"md"}
     _hover={{
       textDecoration: "none",
-      bg: useColorModeValue("primaryColor.400", "gray.900"),
+      // bg: useColorModeValue("primaryColor.400", "gray.900"),
     }}
     href={"#"}
   >
@@ -35,6 +36,7 @@ const NavLink = ({ children }) => (
 
 export default function NavMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <Box
@@ -44,8 +46,8 @@ export default function NavMenu() {
       position="sticky"
       top="0"
       zIndex="1000"
-      p={2}
-      px={10}
+      // p={2}
+      // px={10}
       boxShadow="md"
       blur={10}
       opacity={[0.9]}
@@ -57,19 +59,10 @@ export default function NavMenu() {
           justifyContent={"space-between"}
           color="gray.600"
         >
-          <IconButton
-            // px={10}
-            size={"sm"}
-            icon={isOpen ? <CloseButton /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
-            display={{ md: "none" }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-
           <Flex direction={["column", "column", "row"]}>
             <ChakraLink as={ReactRouterLink} to="/" textDecoration="none">
-              {/* <img src={Logo} alt="Tobenna's Logo" width="120px" /> */}
-              <Text fontWeight={[700]}>Tobenna Miles</Text>
+              <img src={Logo} alt="Tobechukwu's Logo" width="150px" />
+              {/* <Text fontWeight={[700]}>Tobenna Miles</Text> */}
             </ChakraLink>
           </Flex>
           <HStack spacing={8} alignItems={"center"}>
@@ -82,18 +75,23 @@ export default function NavMenu() {
               <ChakraLink
                 as={ReactRouterLink}
                 to="/"
-                _activeLink={{
-                  bg: "primaryColor.400",
-                  color: "gray.900",
-                  fontWeight: "medium",
-                }}
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("primaryColor.400", "gray.900"),
+                  bg: useColorModeValue("primaryColor.50", "gray.200"),
                 }}
                 px={2}
                 py={1}
                 rounded={"md"}
+                className={({ isActive }) =>
+                  !isActive ? "active-link" : undefined
+                }
+                sx={{
+                  "&.active-link": {
+                    bg: "primaryColor.400",
+                    color: "gray.100",
+                    textDecoration: "none",
+                  },
+                }}
               >
                 Home
               </ChakraLink>
@@ -102,11 +100,14 @@ export default function NavMenu() {
                 to="/about"
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("primaryColor.400", "gray.900"),
+                  bg: useColorModeValue("primaryColor.50", "gray.200"),
                 }}
                 px={2}
                 py={1}
                 rounded={"md"}
+                className={({ isActive }) =>
+                  !isActive ? "active-link" : undefined
+                }
               >
                 About Me
               </ChakraLink>
@@ -118,17 +119,31 @@ export default function NavMenu() {
                 cursor="pointer"
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("primaryColor.400", "gray.900"),
+                  bg: useColorModeValue("primaryColor.50", "gray.200"),
+                }}
+                _active={{
+                  bg: useColorModeValue("primaryColor.400", "gray.100"),
                 }}
                 px={2}
                 py={1}
                 rounded={"md"}
+                className={({ isActive }) =>
+                  !isActive ? "active-link" : undefined
+                }
               >
                 My Resume
               </ChakraLink>
               <NavLink>Contact</NavLink>
             </HStack>
           </HStack>
+          <IconButton
+            size={"sm"}
+            icon={isOpen ? <CloseButton /> : <HamburgerIcon />}
+            aria-label={"Open Menu"}
+            display={{ md: "none" }}
+            onClick={isOpen ? onClose : onOpen}
+            // mx={2}
+          />
         </Flex>
 
         {isOpen ? (
