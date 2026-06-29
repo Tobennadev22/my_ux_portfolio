@@ -7,9 +7,11 @@ import Logo from "../icons/tobelogo.png";
 import "../styles/Global.css";
 import {
   Box,
+  Text,
   Container,
   Flex,
   Link,
+  Button,
   useDisclosure,
   Stack,
   IconButton,
@@ -48,7 +50,9 @@ export default function NavMenu() {
       zIndex="1000"
       // p={2}
       // px={10}
-      boxShadow="md"
+      // boxShadow="md"
+      borderBottom={"1px"}
+      borderBottomColor={"#ddd"}
       blur={10}
       opacity={[0.9]}
     >
@@ -61,20 +65,30 @@ export default function NavMenu() {
         >
           <Flex direction={["column", "column", "row"]}>
             <ChakraLink as={ReactRouterLink} to="/" textDecoration="none">
-              <img src={Logo} alt="Tobechukwu's Logo" width="150px" />
-              {/* <Text fontWeight={[700]}>Tobenna Miles</Text> */}
+              {/* <img src={Logo} alt="Tobechukwu's Logo" width="150px" /> */}
+              <Text
+                color={"gray.800"}
+                fontWeight={[500]}
+                fontSize={"24px"}
+                fontFamily={"serif"}
+              >
+                Toby Dube
+              </Text>
             </ChakraLink>
           </Flex>
           <HStack spacing={8} alignItems={"center"}>
             <HStack
               as={"nav"}
-              spacing={4}
+              // spacing={4}
               display={{ base: "none", sm: "flex" }}
-              fontWeight={[500]}
+              justifyContent={"space-between"}
+              fontWeight={[400]}
+              // fontFamily={"serif"}
             >
               <ChakraLink
                 as={ReactRouterLink}
                 to="/"
+                fontSize={"14px"}
                 _hover={{
                   textDecoration: "none",
                   bg: useColorModeValue("primaryColor.50", "gray.200"),
@@ -98,6 +112,7 @@ export default function NavMenu() {
               <ChakraLink
                 as={ReactRouterLink}
                 to="/about"
+                fontSize={"14px"}
                 _hover={{
                   textDecoration: "none",
                   bg: useColorModeValue("primaryColor.50", "gray.200"),
@@ -117,6 +132,7 @@ export default function NavMenu() {
                 smooth="true"
                 duration={800}
                 cursor="pointer"
+                fontSize={"14px"}
                 _hover={{
                   textDecoration: "none",
                   bg: useColorModeValue("primaryColor.50", "gray.200"),
@@ -133,8 +149,21 @@ export default function NavMenu() {
               >
                 My Resume
               </ChakraLink>
-              <NavLink>Contact</NavLink>
+              {/* <NavLink>Contact</NavLink> */}
             </HStack>
+            <Link>
+              <Button
+                href={
+                  "https://www.linkedin.com/in/ekwealor-tobechukwu-100113114/"
+                }
+                bgColor="gray.800"
+                color="#ffffff"
+                fontSize="14px"
+                _hover={{ bg: "gray.700" }}
+              >
+                Let's have a chat
+              </Button>
+            </Link>
           </HStack>
           <IconButton
             size={"sm"}

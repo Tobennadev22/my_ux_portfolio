@@ -10,6 +10,7 @@ import StrollToTop from "./util/StrollToTop";
 import Footer from "./layout/Footer";
 import LoaderIcon from "./components/LoaderIcon";
 import { useState, useEffect } from "react";
+import CursorEffect from "./util/CursorEffect";
 
 import { Box } from "@chakra-ui/react";
 
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <Box>
+      <CursorEffect />
       {isLoading ? (
         <LoaderIcon />
       ) : (

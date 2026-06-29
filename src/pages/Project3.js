@@ -10,9 +10,10 @@ import {
   Divider,
   Image,
   SimpleGrid,
+  chakra,
 } from "@chakra-ui/react";
 
-import wokkahImage from "../assets/wokkah-1.jpg";
+// import demoVideo from "../assets/video/";
 
 // ─── Placeholder image component ─────────────────────────────────────────────
 // Replace `src` prop with your actual image path/import when ready.
@@ -99,7 +100,7 @@ function StatCard({ value, label }) {
     <Box bg="gray.50" borderRadius="12px" px={6} py={5}>
       <Text
         fontSize={{ base: "2xl", md: "3xl" }}
-        fontWeight="700"
+        fontWeight="400"
         color="gray.800"
         lineHeight="1"
       >
@@ -176,13 +177,19 @@ function Project3() {
             UX / Product Design
           </Badge>
           <Heading
-            as="h1"
-            fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
-            fontWeight="700"
+            // as="h1"
+            // fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+            // fontWeight="700"
+            // color="gray.800"
+            // lineHeight="1.15"
+            // maxW="720px"
+            // mb={5}
+            as="h2"
+            fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
+            fontWeight="600"
             color="gray.800"
-            lineHeight="1.15"
-            maxW="720px"
-            mb={5}
+            lineHeight="1.35"
+            mb={3}
           >
             WokkahLearn — Designing an AI-powered LMS that gets people hired
           </Heading>
@@ -232,11 +239,50 @@ function Project3() {
 
         {/* Hero image */}
         <Box pb={{ base: "64px", md: "96px" }}>
-          <PlaceholderImage
+          {/* <PlaceholderImage
             label="Hero / cover image — replace with your final design overview"
             aspectRatio="16/7"
             src={wokkahImage}
-          />
+          /> */}
+          {/* <chakra.video
+            autoPlay
+            muted
+            loop
+            playsInline
+            w="100%"
+            h="100vh"
+            objectFit="cover"
+          >
+            <source
+              src="wookah-video.mp4
+https://www.vidline.com/share/V02WHOJVNW/564a75ff68b50d08afae94260d12e37f"
+              type="video/mp4"
+            />
+          </chakra.video> */}
+
+          <Box w="100%" h="500px">
+            {/* <iframe
+              src="https://www.vidline.com/share/V02WHOJVNW/564a75ff68b50d08afae94260d12e37f"
+              width="100%"
+              height="100%"
+              title="Project video"
+              allowFullScreen
+            /> */}
+            <iframe
+              src="https://www.vidline.com/iframePlayer?id=V02WHOJVNW&key=564a75ff68b50d08afae94260d12e37f&in-modal=1?autoplay=1&loop=1&mute=1"
+              scrolling="no"
+              border="0"
+              frameborder="no"
+              framespacing="0"
+              allowfullscreen="true"
+              width="1000"
+              height="500"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+            >
+              {" "}
+            </iframe>
+          </Box>
         </Box>
 
         {/* ── Stats ── */}

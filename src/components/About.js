@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import SkillBadge from "./Skillbadge";
 // import myImage from "../assets/bg-toby.png";
+import myImage from "../assets/bg-toby2.jpg";
 
 const skills = [
   "UI Design",
@@ -135,7 +136,7 @@ function About() {
         </Box>
         {/* Placeholder for additional content */}
 
-        {/* <ImageSection /> */}
+        <ImageSection />
       </Flex>
       <MySkills />
     </Container>
@@ -164,6 +165,29 @@ function MySkills() {
           ))}
         </Flex>
       </Box>
+    </Box>
+  );
+}
+
+// ImageSection component
+function ImageSection() {
+  return (
+    <Box
+      h={[300, 400, 600]}
+      pt={["32px", "32px", "54px"]}
+      px={["16px", "16px", "16px"]}
+      w={["100%"]}
+      display={["none", "none", "block"]}
+      bg="primaryColor.200"
+      borderRadius={20}
+      objectFit="cover"
+      backgroundImage={`url(${myImage})`}
+      backgroundSize="cover"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      // className="ekit-fancy-text-animated"
+    >
+      {/* Additional content can be added here */}
     </Box>
   );
 }

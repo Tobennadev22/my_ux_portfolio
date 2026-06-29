@@ -56,7 +56,8 @@ const CustomTheme = extendTheme({
     },
   },
   fonts: {
-    Heading: "rubik",
+    // Heading: "rubik",
+    Heading: "Roboto Serif",
     body: "inter",
   },
 });

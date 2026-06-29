@@ -9,9 +9,9 @@ function Home() {
   return (
     <Box>
       <Header />
-      <Motion />
       <Main />
       <Clients />
+      <Motion />
     </Box>
   );
 }
