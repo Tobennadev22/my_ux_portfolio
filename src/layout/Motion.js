@@ -1,13 +1,12 @@
 import { Box, VStack, Text, Container } from "@chakra-ui/react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
-import myImage from "../assets/bg-toby.png";
 
 const steps = [
-  "Oh! I forgot to mention to you",
-  "Something I don't want to keep as a secret 🗝️",
-  "I know you want to know",
-  "I wrote my portfolio with react. My first frontend project😊",
+  "One more thing before you go.",
+  "Design is only half the job.",
+  "I also build the front end — this portfolio included.",
+  "React, Chakra UI, and a healthy respect for the handoff.",
 ];
 
 export default function StickyScroller() {

@@ -3,46 +3,35 @@ import { extendTheme } from "@chakra-ui/react";
 
 const CustomTheme = extendTheme({
   colors: {
-    brandBlue: {
-      50: "#EAEFFD",
-      100: "#BDCEFA",
-      200: "#9DB6F7",
-      300: "#7195F4",
-      400: "#5581F1",
-      500: "#2B61EE",
-      600: "#2758D9",
-      700: "#1F45A9",
-      800: "#183583",
-      900: "#122964",
-    },
-
-    // primaryColor: {
-    //   50: "#fffff8",
-    //   100: "#fffeeb",
-    //   200: "#fffde1",
-    //   300: "#fefcd3",
-    //   400: "#fefcca",
-    //   500: "#fefbbd",
-    //   600: "#e7e4ac",
-    //   700: "#b4b286",
-    //   800: "#8c8a68",
-    //   900: "#6b694f",
-    // },
-
-    // primaryColor: {
-    //   50: "#d8f3dc",
-    //   100: "#b7e4c7",
-    //   200: "#95d5b2",
-    //   300: "#74c69d",
-    //   400: "#52b788",
-    //   500: "#40916c",
-    //   600: "#2d6a4f",
-    //   700: "#1b4332",
-    //   800: "#123024",
-    //   900: "#081c15",
-    // },
-
+    // Neutral scale — the base of the elevated-minimal palette
     primaryColor: {
+      50: "#F7F7F8",
+      100: "#EDEDEF",
+      200: "#D1D1D6",
+      300: "#A8A8B0",
+      400: "#7A7A85",
+      500: "#52525B",
+      600: "#3F3F46",
+      700: "#27272A",
+      800: "#18181B",
+      900: "#09090B",
+    },
+    // Signature accent — a warm clay/terracotta used sparingly across CTAs,
+    // badges, and links against the neutral scale above.
+    accent: {
+      50: "#FBF1EC",
+      100: "#F5DFD2",
+      200: "#E9BCA0",
+      300: "#DB9A72",
+      400: "#CC7A4C",
+      500: "#B85C38",
+      600: "#96472A",
+      700: "#753620",
+      800: "#552618",
+      900: "#37170F",
+    },
+    // Uniform icon/utility color, used across every icon on the site
+    dark: {
       50: "#F7F7F8",
       100: "#EDEDEF",
       200: "#D1D1D6",
@@ -56,9 +45,25 @@ const CustomTheme = extendTheme({
     },
   },
   fonts: {
-    // Heading: "rubik",
-    Heading: "Roboto Serif",
-    body: "inter",
+    heading: "'Roboto Serif', serif",
+    body: "'Inter', sans-serif",
+  },
+  styles: {
+    global: {
+      body: {
+        color: "gray.800",
+      },
+      "*::selection": {
+        backgroundColor: "accent.100",
+      },
+    },
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        borderRadius: "8px",
+      },
+    },
   },
 });
 

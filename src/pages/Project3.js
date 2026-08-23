@@ -5,15 +5,13 @@ import {
   Heading,
   Text,
   Badge,
-  Grid,
-  GridItem,
   Divider,
   Image,
   SimpleGrid,
-  chakra,
 } from "@chakra-ui/react";
 
-// import demoVideo from "../assets/video/";
+import wokkahDashboard from "../assets/wokkah-0.jpg";
+import wokkahCourseDetail from "../assets/wokkah-1.jpg";
 
 // ─── Placeholder image component ─────────────────────────────────────────────
 // Replace `src` prop with your actual image path/import when ready.
@@ -238,51 +236,47 @@ function Project3() {
         </Box>
 
         {/* Hero image */}
-        <Box pb={{ base: "64px", md: "96px" }}>
-          {/* <PlaceholderImage
-            label="Hero / cover image — replace with your final design overview"
-            aspectRatio="16/7"
-            src={wokkahImage}
-          /> */}
-          {/* <chakra.video
-            autoPlay
-            muted
-            loop
-            playsInline
-            w="100%"
-            h="100vh"
-            objectFit="cover"
-          >
-            <source
-              src="wookah-video.mp4
-https://www.vidline.com/share/V02WHOJVNW/564a75ff68b50d08afae94260d12e37f"
-              type="video/mp4"
+        <Box pb={{ base: "48px", md: "64px" }}>
+          <Box borderRadius="2xl" overflow="hidden" boxShadow="lg">
+            <Image
+              src={wokkahDashboard}
+              alt="WokkahLearn student dashboard showing study time, courses in progress, and recommended content"
+              w="100%"
             />
-          </chakra.video> */}
-
-          <Box w="100%" h="500px">
-            {/* <iframe
-              src="https://www.vidline.com/share/V02WHOJVNW/564a75ff68b50d08afae94260d12e37f"
-              width="100%"
-              height="100%"
-              title="Project video"
-              allowFullScreen
-            /> */}
-            <iframe
-              src="https://www.vidline.com/iframePlayer?id=V02WHOJVNW&key=564a75ff68b50d08afae94260d12e37f&in-modal=1?autoplay=1&loop=1&mute=1"
-              scrolling="no"
-              border="0"
-              frameborder="no"
-              framespacing="0"
-              allowfullscreen="true"
-              width="1000"
-              height="500"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-            >
-              {" "}
-            </iframe>
           </Box>
+        </Box>
+
+        {/* Live product screens */}
+        <Box pb={{ base: "64px", md: "96px" }}>
+          <Text fontSize="sm" fontWeight={600} color="gray.700" mb={5}>
+            A look at the shipped student experience
+          </Text>
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
+            <Box>
+              <Box borderRadius="xl" overflow="hidden" boxShadow="md" mb={2}>
+                <Image
+                  src={wokkahDashboard}
+                  alt="WokkahLearn student dashboard, desktop and mobile"
+                  w="100%"
+                />
+              </Box>
+              <Text fontSize="xs" color="gray.400">
+                Student dashboard — desktop &amp; mobile
+              </Text>
+            </Box>
+            <Box>
+              <Box borderRadius="xl" overflow="hidden" boxShadow="md" mb={2}>
+                <Image
+                  src={wokkahCourseDetail}
+                  alt="WokkahLearn course detail page with syllabus, instructor profile, and enrollment"
+                  w="100%"
+                />
+              </Box>
+              <Text fontSize="xs" color="gray.400">
+                Course detail &amp; enrollment — desktop &amp; mobile
+              </Text>
+            </Box>
+          </SimpleGrid>
         </Box>
 
         {/* ── Stats ── */}

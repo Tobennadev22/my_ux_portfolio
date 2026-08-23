@@ -3,96 +3,168 @@ import {
   Text,
   Heading,
   Button,
-  useColorModeValue,
   Flex,
   Container,
+  HStack,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { Link as ScrollLink } from "react-scroll";
+import { ArrowDown, Download } from "lucide-react";
+import portrait from "../assets/Tobechukwu-headshot.png";
 
-// import myImage from "../assets/bg-toby2.jpg";
-// import { Wave } from "../icons/hands.png";
-// import myImage from "../assets/thought.png";
-import { Link } from "react-router-dom";
+const MotionBox = motion(Box);
 
-// Main Header component
 function Header() {
   return (
-    <Container maxW="container.xl">
-      <Box
-        mb={{ base: "12px", md: "28px" }}
-        as="section"
-        px={{ base: 2, md: 10 }}
-        pt="48px"
-      >
-        {/* <Flex direction={["column", "column", "row"]} spacing="20px"> */}
-        {/* Main content box with background image */}
-        <Box
-          h={{ base: 800, md: "fit-content" }}
-          py={["18px", "32px", "54px"]}
-          px={{ base: "16px", md: "40px" }}
-          w={["100%", "100%", 1140]}
-          bg="#fbfbfa"
-          borderRadius={20}
-          // backgroundImage={`url(${myImage})`}
-          // backgroundSize="cover"
-          // backgroundPosition="center"
-          // backgroundRepeat="no-repeat"
-          mx="auto"
-          objectFit={"contain"}
-          marginRight={{ base: 0, md: "20px" }}
+    <Box as="section" bg="#fff" pt={{ base: "40px", md: "56px" }}>
+      <Container maxW="container.xl" px={{ base: 5, md: 10 }}>
+        <Flex
+          direction={{ base: "column", lg: "row" }}
+          align="center"
+          gap={{ base: 10, lg: 16 }}
+          pb={{ base: "56px", md: "88px" }}
         >
-          <Box textAlign={"center"} px={{ base: "8px", md: "24px" }}>
-            <Heading
-              // fontWeight={["medium", "medium", "medium"]}
-              // fontSize={["2xl", "3xl", "4xl"]}
-              // lineHeight={["24px", "32px", "40px"]}
-              // pb={10}
-              mt={"24px"}
-              // color="gray.600"
-              // color="brandBlue.900"
-              fontSize={["2xl", "3xl", "4xl"]}
-              fontWeight="semibold"
-              color="gray.800"
-            >
-              Hey, I’m Toby. I design digital products that solve real problems
-            </Heading>
+          {/* Text side */}
+          <MotionBox
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            flex="1.1"
+            textAlign={{ base: "center", lg: "left" }}
+          >
             <Text
-              fontWeight="sm"
-              fontSize={["sm", "md", "md"]}
-              mt={"32px"}
-              w={{ base: "100%", md: "100%" }}
-              pt="2"
-              color={["gray.500"]}
-              textAlign={"center"}
+              fontSize="xs"
+              fontWeight={600}
+              letterSpacing="0.14em"
+              textTransform="uppercase"
+              color="accent.600"
+              mb={4}
             >
-              A user experience designer with over 3+ years of experience. I
-              create and design minimalistic, user-centered solutions that are
-              usable, equitable, useful, and enjoyable, leveraging intuitive
-              solutions that help businesses achieve good ROI.
+              UI/UX Designer
             </Text>
-            {/* <Box mt="48px">
-              <Link>
-                <Button
-                  href={
-                    "https://www.linkedin.com/in/ekwealor-tobechukwu-100113114/"
-                  }
-                  bgColor="gray.800"
-                  color="#ffffff"
-                  fontSize="14px"
-                  _hover={{ bg: "gray.700" }}
-                >
-                  Let's have a chat
-                </Button>
-              </Link>
-            </Box> */}
 
-            {/* Content */}
-          </Box>
-        </Box>
-        {/* Placeholder for additional content */}
-        {/* <ImageSection /> */}
-        {/* </Flex> */}
-      </Box>
-    </Container>
+            <Heading
+              fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
+              lineHeight="1.12"
+              fontWeight="600"
+              color="gray.800"
+              mb={5}
+            >
+              Hey, I'm Ekwealor. I design digital products that solve real
+              problems.
+            </Heading>
+
+            <Text
+              fontSize={{ base: "md", md: "lg" }}
+              color="gray.500"
+              lineHeight="1.75"
+              maxW="520px"
+              mx={{ base: "auto", lg: "0" }}
+              mb={8}
+            >
+              A UI/UX designer with 4+ years of experience creating
+              minimalistic, user-centered solutions across fintech,
+              healthtech, and edtech — usable, equitable, and built to move
+              the metrics that matter.
+            </Text>
+
+            <HStack
+              spacing={4}
+              justify={{ base: "center", lg: "flex-start" }}
+              flexWrap="wrap"
+            >
+              <Button
+                as={ScrollLink}
+                to="project-section"
+                smooth={true}
+                duration={600}
+                offset={-80}
+                cursor="pointer"
+                rightIcon={<ArrowDown size={16} />}
+                bgColor="dark.900"
+                color="#fff"
+                fontSize="14px"
+                px={6}
+                _hover={{ bg: "accent.600" }}
+              >
+                View my work
+              </Button>
+              <Button
+                as="a"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                leftIcon={<Download size={16} color="var(--chakra-colors-dark-700)" />}
+                variant="outline"
+                borderColor="gray.300"
+                color="dark.700"
+                fontSize="14px"
+                px={6}
+                _hover={{ bg: "gray.50", borderColor: "gray.400" }}
+              >
+                Download resume
+              </Button>
+            </HStack>
+          </MotionBox>
+
+          {/* Portrait */}
+          <MotionBox
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            flex="1"
+            w="100%"
+            maxW={{ base: "360px", lg: "420px" }}
+          >
+            <Box
+              position="relative"
+              borderRadius="24px"
+              overflow="hidden"
+              aspectRatio="4/5"
+              bg="dark.900"
+            >
+              <Box
+                as="img"
+                src={portrait}
+                alt="Portrait of Ekwealor Tobechukwu"
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                objectPosition="top center"
+              />
+            </Box>
+          </MotionBox>
+        </Flex>
+
+        {/* Trust strip */}
+        <Flex
+          direction={{ base: "column", sm: "row" }}
+          align="center"
+          justify="center"
+          gap={{ base: 3, sm: 10 }}
+          borderTop="1px solid"
+          borderColor="gray.100"
+          py={6}
+        >
+          <HeroStat value="4+" label="Years of experience" />
+          <HeroStat value="500k+" label="Users impacted" />
+          <HeroStat value="3" label="Industries — fintech, healthtech, edtech" />
+        </Flex>
+      </Container>
+    </Box>
+  );
+}
+
+function HeroStat({ value, label }) {
+  return (
+    <HStack spacing={2}>
+      <Text fontSize="lg" fontWeight="700" color="gray.800">
+        {value}
+      </Text>
+      <Text fontSize="sm" color="gray.500">
+        {label}
+      </Text>
+    </HStack>
   );
 }
 

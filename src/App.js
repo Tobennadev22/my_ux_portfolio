@@ -8,42 +8,26 @@ import Project2 from "./pages/Project2";
 import Project3 from "./pages/Project3";
 import StrollToTop from "./util/StrollToTop";
 import Footer from "./layout/Footer";
-import LoaderIcon from "./components/LoaderIcon";
-import { useState, useEffect } from "react";
 import CursorEffect from "./util/CursorEffect";
 
 import { Box } from "@chakra-ui/react";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
-
   return (
     <Box>
       <CursorEffect />
-      {isLoading ? (
-        <LoaderIcon />
-      ) : (
-        <>
-          <Router>
-            <NavMenu />
-            <StrollToTop />
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/about" element={<AboutMe />}></Route>
-              <Route path="/project1" element={<Project1 />}></Route>
-              <Route path="/project2" element={<Project2 />}></Route>
-              <Route path="/project3" element={<Project3 />}></Route>
-            </Routes>
-          </Router>
-          <Footer />
-        </>
-      )}
+      <Router>
+        <NavMenu />
+        <StrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<AboutMe />}></Route>
+          <Route path="/project1" element={<Project1 />}></Route>
+          <Route path="/project2" element={<Project2 />}></Route>
+          <Route path="/project3" element={<Project3 />}></Route>
+        </Routes>
+        <Footer />
+      </Router>
     </Box>
   );
 }

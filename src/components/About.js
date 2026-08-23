@@ -1,15 +1,11 @@
-import {
-  Box,
-  Text,
-  Heading,
-  Button,
-  Container,
-  useColorModeValue,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Text, Heading, Button, Flex, Container } from "@chakra-ui/react";
 import SkillBadge from "./Skillbadge";
-// import myImage from "../assets/bg-toby.png";
-import myImage from "../assets/bg-toby2.jpg";
+
+const focusAreas = [
+  { label: "Fintech", detail: "Monibag — remittance for the diaspora" },
+  { label: "Healthtech", detail: "Medteqpro — hospital & patient records" },
+  { label: "Edtech", detail: "WokkahLearn — AI-powered learning & hiring" },
+];
 
 const skills = [
   "UI Design",
@@ -24,119 +20,83 @@ const skills = [
   "Mobile Design",
   "HTML",
   "CSS",
-  "REACT",
-  "NextJS",
+  "React",
+  "Next.js",
   "Chakra UI",
+  "Figma",
   "Google Stitch",
-  "ChatGPT",
-  "Claude MCP",
-  "Figma MCP",
 ];
 
-// Main Header component
 function About() {
   return (
-    <Container as="section" py="48px" maxWidth={["sm", "md", "1200px"]}>
-      <Flex direction={["column", "column", "row"]} spacing="20px" mx={"auto"}>
-        {/* Main content box with background image */}
+    <Container as="section" py={{ base: "40px", md: "64px" }} maxWidth="1200px">
+      <Flex direction={{ base: "column", lg: "row" }} gap={10} mx="auto">
+        {/* Main content box */}
         <Box
-          // h={[800, 500, 600]}
-          py={["32px", "32px", "54px"]}
-          // px={["16px", "16px", "40px"]}
-          // w={["100%", "100%", "100%"]}
-          bg="gray.100"
-          borderRadius={20}
-          // backgroundImage={`url(${myImage})`}
-          backgroundColor="#f9f9f9"
-          backgroundSize="cover"
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          // marginRight="20px"
+          py={{ base: "32px", lg: "54px" }}
+          bg="#f9f9f9"
+          borderRadius="20px"
+          flex="1.4"
         >
-          <Box textAlign={["center", "center", "left"]} px="24px">
-            <Heading
-              fontWeight={["medium", "medium", "medium"]}
-              fontSize={["3xl", "3xl", "4xl"]}
-              pb={10}
-              color="gray.600"
+          <Box textAlign={{ base: "center", lg: "left" }} px="24px">
+            <Text
+              fontSize="xs"
+              fontWeight={600}
+              letterSpacing="0.14em"
+              textTransform="uppercase"
+              color="accent.600"
+              mb={4}
             >
-              Get to know me <span>😎</span>
+              About
+            </Text>
+            <Heading
+              fontWeight={600}
+              fontSize={["3xl", "3xl", "4xl"]}
+              pb={8}
+              color="gray.800"
+            >
+              Get to know me
             </Heading>
             <Box fontSize={["sm", "md", "md"]}>
               <Text
-                fontWeight="sm"
-                // fontSize={["sm", "md", "md"]}
-                w={["100%", "100%", "100%"]}
-                pt="2"
-                color={["gray.500"]}
-                textAlign={["center", "center", "left"]}
-                lineHeight={["24px"]}
+                w="100%"
+                color="gray.600"
+                textAlign={{ base: "center", lg: "left" }}
+                lineHeight="1.8"
               >
                 I'm Ekwealor Tobechukwu, a UI/UX Designer passionate about
-                creating intuitive, user-centered digital experiences. With over
-                4 years of experience, I specialize in turning complex ideas
-                into beautiful, functional interfaces across web and mobile
-                platforms. I believe great design is a balance between
+                creating intuitive, user-centered digital experiences. With
+                over 4 years of experience, I specialize in turning complex
+                ideas into beautiful, functional interfaces across web and
+                mobile platforms. I believe great design is a balance between
                 aesthetics, functionality, and empathy. My approach always
-                starts with understanding the user's needs and business goals to
-                create impactful solutions. I'm highly skilled in tools like
-                Figma, Adobe Illustrator, Photoshop, and also have a strong
-                foundation in HTML and CSS, which helps me design with
-                developers in mind. When I’m not designing, you’ll find me
-                watching a football game, exploring new tech trends, sketching
-                ideas, mentoring young designers or collaborating with creative
-                communities.
+                starts with understanding the user's needs and business goals
+                to create impactful solutions. I'm highly skilled in tools
+                like Figma, Adobe Illustrator, and Photoshop, and have a
+                strong foundation in HTML and CSS, which helps me design with
+                developers in mind. When I'm not designing, you'll find me
+                watching a football game, exploring new tech trends,
+                sketching ideas, mentoring young designers, or collaborating
+                with creative communities.
               </Text>
-              {/* <Text
-                fontWeight="sm"
-                // fontSize={["sm", "md", "md"]}
-                w={["100%", "100%", "100%"]}
-                pt="2"
-                color={["gray.500"]}
-                textAlign={["center", "center", "left"]}
-              >
-                After a couple of years working on various engineering teams as
-                a UI Designer/Front End Developer, I decided to focus more on
-                design because I believe I can help reduce development time for
-                engineering teams by producing high-fidelity prototypes that can
-                easily translate to code with my frontend experience. I have
-                been lucky to have worked with talented individuals across
-                different cross-functional teams on exciting projects where I
-                have made valuable contributions. I have designed complex
-                interfaces that have increased efficiencies and improved
-                companies' revenue. I am constantly improving my skill because I
-                believe in the say "Learning never stops".
-              </Text> */}
-              {/* <Text
-                fontWeight="sm"
-                // fontSize={["sm", "md", "md"]}
-                w={["100%", "100%", "100%"]}
-                pt="2"
-                color={["gray.500"]}
-                textAlign={["center", "center", "left"]}
-              >
-                When I’m not designing, you can find me watching a football
-                game, mentoring young designers, or streaming useful videos on
-                youtube. I am based in the industrious city of Lagos, Nigeria.
-              </Text> */}
             </Box>
-            <Box mt="48px">
+            <Box mt="40px">
               <Button
-                _hover={{
-                  bg: useColorModeValue("gray.800", "gray.700"),
-                  color: "gray.50",
-                }}
-                bgColor="gray.700"
-                color="gray.200"
+                as="a"
+                href="https://www.linkedin.com/in/ekwealor-tobechukwu-100113114/"
+                target="_blank"
+                rel="noopener noreferrer"
+                bgColor="gray.900"
+                color="#fff"
+                _hover={{ bg: "accent.600" }}
               >
-                Let’s build something amazing together.
+                Let's build something amazing together
               </Button>
             </Box>
           </Box>
         </Box>
-        {/* Placeholder for additional content */}
 
-        <ImageSection />
+        <FocusAreas />
       </Flex>
       <MySkills />
     </Container>
@@ -145,49 +105,51 @@ function About() {
 
 function MySkills() {
   return (
-    <Box>
-      <Heading
-        fontWeight={["medium", "medium", "medium"]}
-        fontSize={["2xl", "3xl", "3xl"]}
-        py={10}
-        color="gray.600"
-      >
+    <Box mt={{ base: 12, md: 16 }}>
+      <Heading fontWeight={600} fontSize={["2xl", "3xl", "3xl"]} pb={6} color="gray.800">
         My Skill Set
       </Heading>
-      <Box>
-        <Flex direction={["row"]} gap={4} wrap="wrap">
-          {skills.map((skill, index) => (
-            <SkillBadge
-              key={index}
-              name={skill}
-              className={`opacity-0 animate-slide-up delay-${index * 100}`}
-            />
-          ))}
-        </Flex>
-      </Box>
+      <Flex direction="row" gap={3} wrap="wrap">
+        {skills.map((skill) => (
+          <SkillBadge key={skill} name={skill} />
+        ))}
+      </Flex>
     </Box>
   );
 }
 
-// ImageSection component
-function ImageSection() {
+function FocusAreas() {
   return (
     <Box
-      h={[300, 400, 600]}
-      pt={["32px", "32px", "54px"]}
-      px={["16px", "16px", "16px"]}
-      w={["100%"]}
-      display={["none", "none", "block"]}
-      bg="primaryColor.200"
-      borderRadius={20}
-      objectFit="cover"
-      backgroundImage={`url(${myImage})`}
-      backgroundSize="cover"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      // className="ekit-fancy-text-animated"
+      flex="1"
+      bg="gray.900"
+      borderRadius="20px"
+      px={8}
+      py={{ base: 8, lg: 10 }}
+      display={{ base: "none", lg: "flex" }}
+      flexDirection="column"
+      justifyContent="center"
+      gap={7}
     >
-      {/* Additional content can be added here */}
+      <Text
+        fontSize="xs"
+        fontWeight={600}
+        letterSpacing="0.14em"
+        textTransform="uppercase"
+        color="accent.400"
+      >
+        Where I design
+      </Text>
+      {focusAreas.map(({ label, detail }) => (
+        <Box key={label} borderTop="1px solid" borderColor="whiteAlpha.200" pt={5}>
+          <Text fontSize="lg" fontWeight="600" color="white" mb={1}>
+            {label}
+          </Text>
+          <Text fontSize="sm" color="whiteAlpha.700" lineHeight="1.6">
+            {detail}
+          </Text>
+        </Box>
+      ))}
     </Box>
   );
 }

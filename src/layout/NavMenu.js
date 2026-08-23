@@ -1,9 +1,5 @@
-import { Link as ReactRouterLink } from "react-router-dom";
-import { useState } from "react";
-// import { NavLink } from "react-router-dom";
+import { Link as ReactRouterLink, useLocation } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
-import { Link as ScrollLink } from "react-scroll";
-import Logo from "../icons/tobelogo.png";
 import "../styles/Global.css";
 import {
   Box,
@@ -16,199 +12,158 @@ import {
   Stack,
   IconButton,
   HStack,
-  useColorModeValue,
-  CloseButton,
 } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { Menu, X, ExternalLink, Download } from "lucide-react";
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      // bg: useColorModeValue("primaryColor.400", "gray.900"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+const LINKEDIN_URL =
+  "https://www.linkedin.com/in/ekwealor-tobechukwu-100113114/";
+
+const linkStyles = {
+  fontSize: "14px",
+  fontWeight: 500,
+  px: 3,
+  py: 1,
+  rounded: "md",
+  color: "gray.600",
+  _hover: { color: "accent.600", textDecoration: "none" },
+};
+
+function NavItem({ to, children, onClick }) {
+  const { pathname } = useLocation();
+  const isActive = pathname === to;
+
+  return (
+    <ChakraLink
+      as={ReactRouterLink}
+      to={to}
+      onClick={onClick}
+      {...linkStyles}
+      color={isActive ? "accent.600" : "gray.600"}
+      fontWeight={isActive ? 600 : 500}
+    >
+      {children}
+    </ChakraLink>
+  );
+}
 
 export default function NavMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isActive, setIsActive] = useState(false);
 
   return (
     <Box
-      // bg={useColorModeValue("black.900")}
-      // px={20}
       bg="#fff"
       position="sticky"
       top="0"
       zIndex="1000"
-      // p={2}
-      // px={10}
-      // boxShadow="md"
-      borderBottom={"1px"}
-      borderBottomColor={"#ddd"}
-      blur={10}
-      opacity={[0.9]}
+      borderBottom="1px"
+      borderBottomColor="#eee"
     >
       <Container maxW={["container.sm", "container.xl"]}>
-        <Flex
-          h={16}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          color="gray.600"
-        >
-          <Flex direction={["column", "column", "row"]}>
-            <ChakraLink as={ReactRouterLink} to="/" textDecoration="none">
-              {/* <img src={Logo} alt="Tobechukwu's Logo" width="150px" /> */}
-              <Text
-                color={"gray.800"}
-                fontWeight={[500]}
-                fontSize={"24px"}
-                fontFamily={"serif"}
-              >
-                Toby Dube
-              </Text>
-            </ChakraLink>
-          </Flex>
-          <HStack spacing={8} alignItems={"center"}>
-            <HStack
-              as={"nav"}
-              // spacing={4}
-              display={{ base: "none", sm: "flex" }}
-              justifyContent={"space-between"}
-              fontWeight={[400]}
-              // fontFamily={"serif"}
+        <Flex h={16} alignItems="center" justifyContent="space-between">
+          <ChakraLink as={ReactRouterLink} to="/" textDecoration="none">
+            <Text
+              color="gray.800"
+              fontWeight={600}
+              fontSize="20px"
+              fontFamily="heading"
             >
-              <ChakraLink
-                as={ReactRouterLink}
-                to="/"
-                fontSize={"14px"}
-                _hover={{
-                  textDecoration: "none",
-                  bg: useColorModeValue("primaryColor.50", "gray.200"),
-                }}
-                px={2}
-                py={1}
-                rounded={"md"}
-                className={({ isActive }) =>
-                  !isActive ? "active-link" : undefined
-                }
-                // sx={{
-                //   "&.active-link": {
-                //     bg: "primaryColor.400",
-                //     color: "gray.100",
-                //     textDecoration: "none",
-                //   },
-                // }}
-              >
-                Home
-              </ChakraLink>
-              <ChakraLink
-                as={ReactRouterLink}
-                to="/about"
-                fontSize={"14px"}
-                _hover={{
-                  textDecoration: "none",
-                  bg: useColorModeValue("primaryColor.50", "gray.200"),
-                }}
-                px={2}
-                py={1}
-                rounded={"md"}
-                className={({ isActive }) =>
-                  !isActive ? "active-link" : undefined
-                }
-              >
-                About Me
-              </ChakraLink>
-              <ChakraLink
-                as={ScrollLink}
-                to="#"
-                smooth="true"
-                duration={800}
-                cursor="pointer"
-                fontSize={"14px"}
-                _hover={{
-                  textDecoration: "none",
-                  bg: useColorModeValue("primaryColor.50", "gray.200"),
-                }}
-                _active={{
-                  bg: useColorModeValue("primaryColor.400", "gray.100"),
-                }}
-                px={2}
-                py={1}
-                rounded={"md"}
-                className={({ isActive }) =>
-                  !isActive ? "active-link" : undefined
-                }
-              >
-                My Resume
-              </ChakraLink>
-              {/* <NavLink>Contact</NavLink> */}
+              Ekwealor Tobechukwu
+            </Text>
+          </ChakraLink>
+
+          <HStack spacing={6} alignItems="center">
+            <HStack
+              as="nav"
+              spacing={1}
+              display={{ base: "none", md: "flex" }}
+            >
+              <NavItem to="/">Home</NavItem>
+              <NavItem to="/about">About</NavItem>
             </HStack>
-            <Link>
-              <Button
-                href={
-                  "https://www.linkedin.com/in/ekwealor-tobechukwu-100113114/"
-                }
-                bgColor="gray.800"
-                color="#ffffff"
-                fontSize="14px"
-                _hover={{ bg: "gray.700" }}
-              >
-                Let's have a chat
-              </Button>
+
+            <Link
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              display={{ base: "none", md: "flex" }}
+              alignItems="center"
+              gap="6px"
+              fontSize="14px"
+              fontWeight={500}
+              color="dark.700"
+              _hover={{ color: "accent.600", textDecoration: "none" }}
+            >
+              <Download size={14} />
+              Resume
             </Link>
+
+            <Button
+              as="a"
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              leftIcon={<ExternalLink size={14} />}
+              bgColor="dark.900"
+              color="#ffffff"
+              fontSize="14px"
+              size="sm"
+              px={5}
+              _hover={{ bg: "accent.600" }}
+              display={{ base: "none", sm: "inline-flex" }}
+            >
+              Let's connect
+            </Button>
           </HStack>
+
           <IconButton
-            size={"sm"}
-            icon={isOpen ? <CloseButton /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
+            size="sm"
+            icon={
+              isOpen ? (
+                <X size={18} color="var(--chakra-colors-dark-700)" />
+              ) : (
+                <Menu size={18} color="var(--chakra-colors-dark-700)" />
+              )
+            }
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            variant="ghost"
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
-            // mx={2}
           />
         </Flex>
 
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
-              <ChakraLink
-                as={ReactRouterLink}
-                to="/"
-                px={2}
-                py={1}
-                rounded={"md"}
-              >
+            <Stack as="nav" spacing={3}>
+              <NavItem to="/" onClick={onClose}>
                 Home
-              </ChakraLink>
-              <ChakraLink
-                as={ReactRouterLink}
-                to="/about"
-                px={2}
-                py={1}
-                rounded={"md"}
+              </NavItem>
+              <NavItem to="/about" onClick={onClose}>
+                About
+              </NavItem>
+              <Link
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                display="flex"
+                alignItems="center"
+                gap="8px"
+                {...linkStyles}
               >
-                About Me
-              </ChakraLink>
-              <ChakraLink
-                as={ScrollLink}
-                to="project-section"
-                smooth="true"
-                duration={500}
-                cursor="pointer"
-                px={2}
-                py={1}
-                rounded={"md"}
+                <Download size={14} />
+                Resume
+              </Link>
+              <Link
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                display="flex"
+                alignItems="center"
+                gap="8px"
+                {...linkStyles}
               >
-                Projects
-              </ChakraLink>
-              <NavLink>Contact</NavLink>
+                <ExternalLink size={14} />
+                Let's connect
+              </Link>
             </Stack>
           </Box>
         ) : null}

@@ -4,8 +4,6 @@ import { Link as ChakraLink } from "@chakra-ui/react";
 import {
   Box,
   Heading,
-  Button,
-  useColorModeValue,
   Text,
   Flex,
   Container,
@@ -15,13 +13,11 @@ import {
 } from "@chakra-ui/react";
 import "../styles/Global.css";
 import project1 from "../assets/monibag-mobile-hand.png";
-import { CircleAlert } from "lucide-react";
+import { CircleAlert, ArrowLeft, ArrowDown } from "lucide-react";
 
 import ukUsers from "../assets/allukusers.png";
-import arrow from "../icons/icegif-715.gif";
 import RevealOnScrollFadeDown from "../util/RevealOnScrollFadeDown";
 import RevealOnScrollFadeRight from "../util/RevealOnStrollFadeRight";
-import { ArrowBackIcon } from "@chakra-ui/icons";
 
 function Project1() {
   return (
@@ -52,7 +48,7 @@ function HeadingSection() {
           <Box w={["100%", "100%", "45%"]} flexShrink={0}>
             {/* Back link */}
             <Flex alignItems="center" gap={1} mb={6}>
-              <ArrowBackIcon color="gray.400" boxSize={4} />
+              <ArrowLeft size={16} color="var(--chakra-colors-dark-700)" />
               <ChakraLink
                 as={ReactRouterLink}
                 to="/"
@@ -247,7 +243,7 @@ function Section1() {
             mt={2}
           >
             <Box flexShrink={0} mt="2px">
-              <CircleAlert size={18} color="#E53E3E" />
+              <CircleAlert size={18} color="var(--chakra-colors-dark-700)" />
             </Box>
             <Box>
               <Text
@@ -322,10 +318,10 @@ function WalkThrough() {
 
         <RevealOnScrollFadeRight>
           <Box mb={[8, 10, 12]}>
-            <img
-              src={arrow}
-              alt="scroll direction arrow"
-              style={{ width: "60px", height: "auto" }}
+            <ArrowDown
+              size={32}
+              color="var(--chakra-colors-dark-700)"
+              aria-label="Scroll down"
             />
           </Box>
         </RevealOnScrollFadeRight>
