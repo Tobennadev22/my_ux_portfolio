@@ -595,6 +595,7 @@ function Solution() {
   return (
     <Box bg="#f9f9f9" py={[12, 16, 24]}>
       <Container maxW="container.xl" px={[5, 8, 12]}>
+        <RevealOnScrollFadeDown>
         <Text
           fontSize="xs"
           fontWeight={600}
@@ -648,6 +649,7 @@ function Solution() {
             </Flex>
           ))}
         </Flex>
+        </RevealOnScrollFadeDown>
       </Container>
     </Box>
   );

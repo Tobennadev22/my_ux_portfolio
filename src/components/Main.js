@@ -12,8 +12,8 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import RevealOnScrollFadeDown from "../util/RevealOnScrollFadeDown";
 
 import project1 from "../assets/monibag-mobile.jpg";
-import project2 from "../assets/medteqprodashboard1.jpg";
-import project3 from "../assets/wokkah-1.jpg";
+import project2 from "../assets/medteqpro-thumbnail.jpg";
+import project3 from "../assets/wokkah-Thumbnail.png";
 
 // ─── Data ─────────────────────────────────────────────────
 

@@ -38,6 +38,7 @@ export default function StickyScroller() {
       borderRadius="20px"
       ref={containerRef}
       h={`${steps.length * 110}vh`}
+      mb={{ base: "40px", md: "64px" }}
       backgroundImage="linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)"
       color="#29292A"
       position="relative"

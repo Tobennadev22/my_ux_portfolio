@@ -14,7 +14,7 @@ import {
 import { CircleAlert, ArrowLeft } from "lucide-react";
 import RevealOnScrollFadeDown from "../util/RevealOnScrollFadeDown";
 
-import doctorDashboard from "../assets/medteqprodashboard1.jpg";
+import doctorDashboard from "../assets/medteqpro-doctor.png";
 import hospitalAdmin from "../assets/medteqprodashboard2.jpg";
 import patientDirectory from "../assets/medteqprodashboard-1.png";
 
@@ -23,8 +23,104 @@ function Project2() {
     <Box>
       <HeadingSection />
       <Overview />
+      <Roles />
       <Screens />
       <ComingSoon />
+    </Box>
+  );
+}
+
+const ROLES = [
+  {
+    name: "Super Admin",
+    description:
+      "Oversees every hospital on the platform — registrations, active/inactive status, and subscriptions, from one dashboard.",
+  },
+  {
+    name: "Hospital Admin",
+    description:
+      "Manages a single hospital's staff, departments, and day-to-day settings.",
+  },
+  {
+    name: "Doctor",
+    description:
+      "Reviews patient records, diagnoses, and admissions, with visit and diagnosis analytics at a glance.",
+  },
+  {
+    name: "Nurse",
+    description:
+      "Tracks wound care, vitals, and patient status alongside the rest of the care team.",
+  },
+  {
+    name: "Pharmacy",
+    description:
+      "Views and updates prescription and medication records tied to each patient.",
+  },
+  {
+    name: "Lab Scientist",
+    description:
+      "Logs lab results directly into the shared patient record.",
+  },
+  {
+    name: "Front Desk",
+    description:
+      "Registers patients and families, and manages the daily patient directory.",
+  },
+  {
+    name: "Patient (Mobile App)",
+    description:
+      "Books appointments and stays connected to their own records and care team.",
+  },
+];
+
+// ─── Roles ───────────────────────────────────────────────────────────────────
+
+function Roles() {
+  return (
+    <Box bg="#ffffff" py={[12, 16, 20]}>
+      <Container maxW="container.xl" px={[5, 8, 12]}>
+        <RevealOnScrollFadeDown>
+          <Text
+            fontSize="xs"
+            fontWeight={600}
+            letterSpacing="0.12em"
+            textTransform="uppercase"
+            color="accent.600"
+            mb={3}
+            textAlign="center"
+          >
+            The System
+          </Text>
+          <Heading
+            fontSize={["2xl", "3xl", "4xl"]}
+            fontWeight="semibold"
+            color="gray.800"
+            textAlign="center"
+            mb={[10, 12, 16]}
+          >
+            Eight roles, one shared record
+          </Heading>
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} gap={5}>
+            {ROLES.map((role) => (
+              <Box
+                key={role.name}
+                bg="gray.50"
+                border="1px solid"
+                borderColor="gray.100"
+                borderRadius="xl"
+                p={5}
+              >
+                <Text fontSize="sm" fontWeight={600} color="gray.800" mb={2}>
+                  {role.name}
+                </Text>
+                <Text fontSize="xs" color="gray.500" lineHeight="1.7">
+                  {role.description}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </RevealOnScrollFadeDown>
+      </Container>
     </Box>
   );
 }
@@ -98,18 +194,20 @@ function HeadingSection() {
           </Button>
         </Box>
 
-        <Box
-          borderRadius="2xl"
-          overflow="hidden"
-          mb={[12, 16, 20]}
-          boxShadow="lg"
-        >
-          <Image
-            src={doctorDashboard}
-            alt="Medteqpro doctor dashboard showing patient visits, admissions, and diagnosis breakdown"
-            w="100%"
-          />
-        </Box>
+        <RevealOnScrollFadeDown>
+          <Box
+            borderRadius="2xl"
+            overflow="hidden"
+            mb={[12, 16, 20]}
+            boxShadow="lg"
+          >
+            <Image
+              src={doctorDashboard}
+              alt="Medteqpro patient record open on a doctor's laptop, showing medical information alongside Lab Scientist, Pharmacy, Nurse, and Doctor role status"
+              w="100%"
+            />
+          </Box>
+        </RevealOnScrollFadeDown>
       </Container>
     </Box>
   );
@@ -123,7 +221,7 @@ function Overview() {
       <Container maxW="container.xl" px={[5, 8, 12]}>
         <RevealOnScrollFadeDown>
           <SimpleGrid columns={{ base: 1, sm: 3 }} gap={5} mb={[10, 12, 14]}>
-            <StatCard value="3+" label="User roles — hospital admin, doctor, patient" />
+            <StatCard value="8" label="User roles, from super admin to the patient mobile app" />
             <StatCard value="Pilot" label="Currently in pilot testing with partner hospitals" />
             <StatCard value="10M+" label="Potential users at national scale" />
           </SimpleGrid>
@@ -132,15 +230,30 @@ function Overview() {
         <RevealOnScrollFadeDown>
           <Flex direction={["column", "column", "row"]} gap={[8, 10, 16]} mb={[8, 10, 14]}>
             <OverviewItem label="The Product">
-              Medteqpro is a healthtech platform that gives Nigerian hospitals
-              a shared system for managing patient records, staff, and
-              day-to-day clinical operations — replacing fragmented,
-              paper-heavy workflows.
+              Medteqpro, built by Sioteq Technologies, is a healthtech
+              platform that gives Nigerian hospitals a shared system for
+              managing patient records, staff, and day-to-day clinical
+              operations — replacing fragmented, paper-heavy workflows.
             </OverviewItem>
             <OverviewItem label="My Role">
-              UI/UX Designer — designed the admin, doctor, and patient-facing
-              experiences, from information architecture through to
-              high-fidelity screens.
+              UI/UX Designer — designed across all eight roles in the
+              system, from super admin down to the patient mobile app, from
+              information architecture through to high-fidelity screens.
+            </OverviewItem>
+          </Flex>
+        </RevealOnScrollFadeDown>
+
+        <RevealOnScrollFadeDown>
+          <Flex direction={["column", "column", "row"]} gap={[8, 10, 16]} mb={[8, 10, 14]}>
+            <OverviewItem label="Built For">
+              Hospitals, clinics, and healthcare professionals — teams that
+              needed one shared system instead of disconnected tools and
+              paper trails.
+            </OverviewItem>
+            <OverviewItem label="What It Leads With">
+              Enterprise-grade, encrypted security alongside operational
+              efficiency — trust had to come first for a system holding
+              patient data.
             </OverviewItem>
           </Flex>
         </RevealOnScrollFadeDown>
@@ -235,20 +348,20 @@ function Screens() {
             textAlign="center"
             mb={[10, 12, 16]}
           >
-            A shared system for three very different users
+            A closer look at two of the eight roles
           </Heading>
         </RevealOnScrollFadeDown>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} gap={8}>
           <ScreenCard
             image={hospitalAdmin}
-            badge="Hospital Admin"
-            title="Managing hospitals at a glance"
-            description="A national-level overview for the platform's operators — active hospitals, staff, and subscription status in one dashboard."
+            badge="Super Admin"
+            title="Managing every hospital at a glance"
+            description="A platform-wide overview for operators — active and inactive hospitals, staff, and subscription status, all in one dashboard."
           />
           <ScreenCard
             image={patientDirectory}
-            badge="Front Desk / Nurse"
+            badge="Front Desk"
             title="A searchable patient directory"
             description="Every registered patient — individual or family — searchable by name or ID, with clear status and registration details for staff on the move."
           />
@@ -295,23 +408,25 @@ function ComingSoon() {
   return (
     <Box bg="#f9f9f9" py={[12, 16, 20]}>
       <Container maxW="container.xl" px={[5, 8, 12]}>
-        <Box
-          bg="white"
-          border="1px solid"
-          borderColor="gray.100"
-          borderRadius="2xl"
-          px={[6, 8, 10]}
-          py={[8, 10, 12]}
-          textAlign="center"
-        >
-          <Heading fontSize={["xl", "2xl"]} fontWeight={600} color="gray.800" mb={3}>
-            The full write-up — research, wireframes, and iterations — is on its way
-          </Heading>
-          <Text fontSize={["sm", "md"]} color="gray.500" maxW="560px" mx="auto">
-            In the meantime, explore the live product or reach out directly —
-            happy to walk through the process.
-          </Text>
-        </Box>
+        <RevealOnScrollFadeDown>
+          <Box
+            bg="white"
+            border="1px solid"
+            borderColor="gray.100"
+            borderRadius="2xl"
+            px={[6, 8, 10]}
+            py={[8, 10, 12]}
+            textAlign="center"
+          >
+            <Heading fontSize={["xl", "2xl"]} fontWeight={600} color="gray.800" mb={3}>
+              The full write-up — research, wireframes, and iterations — is on its way
+            </Heading>
+            <Text fontSize={["sm", "md"]} color="gray.500" maxW="560px" mx="auto">
+              In the meantime, explore the live product or reach out directly —
+              happy to walk through the process.
+            </Text>
+          </Box>
+        </RevealOnScrollFadeDown>
       </Container>
     </Box>
   );

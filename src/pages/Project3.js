@@ -5,11 +5,14 @@ import {
   Heading,
   Text,
   Badge,
+  Button,
   Divider,
   Image,
   SimpleGrid,
 } from "@chakra-ui/react";
 
+import { Puzzle, Settings, BarChart3, Target } from "lucide-react";
+import RevealOnScrollFadeDown from "../util/RevealOnScrollFadeDown";
 import wokkahDashboard from "../assets/wokkah-0.jpg";
 import wokkahCourseDetail from "../assets/wokkah-1.jpg";
 
@@ -62,32 +65,34 @@ function PlaceholderImage({ label, aspectRatio = "16/9", src, alt }) {
 
 function Section({ eyebrow, title, children, pb }) {
   return (
-    <Box as="section" pb={pb || { base: "64px", md: "96px" }}>
-      {eyebrow && (
-        <Badge
-          colorScheme="gray"
-          fontSize="10px"
-          letterSpacing="0.12em"
-          textTransform="uppercase"
-          mb={3}
-        >
-          {eyebrow}
-        </Badge>
-      )}
-      {title && (
-        <Heading
-          as="h2"
-          fontSize={{ base: "xl", md: "2xl" }}
-          fontWeight="600"
-          color="gray.700"
-          mb={6}
-          lineHeight="1.3"
-        >
-          {title}
-        </Heading>
-      )}
-      {children}
-    </Box>
+    <RevealOnScrollFadeDown>
+      <Box as="section" pb={pb || { base: "64px", md: "96px" }}>
+        {eyebrow && (
+          <Badge
+            colorScheme="gray"
+            fontSize="10px"
+            letterSpacing="0.12em"
+            textTransform="uppercase"
+            mb={3}
+          >
+            {eyebrow}
+          </Badge>
+        )}
+        {title && (
+          <Heading
+            as="h2"
+            fontSize={{ base: "xl", md: "2xl" }}
+            fontWeight="600"
+            color="gray.700"
+            mb={6}
+            lineHeight="1.3"
+          >
+            {title}
+          </Heading>
+        )}
+        {children}
+      </Box>
+    </RevealOnScrollFadeDown>
   );
 }
 
@@ -113,12 +118,12 @@ function StatCard({ value, label }) {
 
 // ─── Finding card ─────────────────────────────────────────────────────────────
 
-function FindingCard({ icon, title, body }) {
+function FindingCard({ icon: Icon, title, body }) {
   return (
     <Box bg="gray.50" borderRadius="12px" p={6}>
-      <Text fontSize="24px" mb={3}>
-        {icon}
-      </Text>
+      <Box mb={3}>
+        <Icon size={24} color="var(--chakra-colors-dark-700)" />
+      </Box>
       <Text fontSize="sm" fontWeight="600" color="gray.700" mb={2}>
         {title}
       </Text>
@@ -203,6 +208,20 @@ function Project3() {
             analytics dashboard for WokkahLearn's platform redesign.
           </Text>
 
+          <Button
+            as="a"
+            href="https://wokkah.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            bgColor="dark.900"
+            color="#fff"
+            fontSize="14px"
+            mb={10}
+            _hover={{ bg: "accent.600" }}
+          >
+            Visit Live Website
+          </Button>
+
           {/* Meta row */}
           <Flex
             direction={{ base: "column", sm: "row" }}
@@ -236,61 +255,67 @@ function Project3() {
         </Box>
 
         {/* Hero image */}
-        <Box pb={{ base: "48px", md: "64px" }}>
-          <Box borderRadius="2xl" overflow="hidden" boxShadow="lg">
-            <Image
-              src={wokkahDashboard}
-              alt="WokkahLearn student dashboard showing study time, courses in progress, and recommended content"
-              w="100%"
-            />
+        <RevealOnScrollFadeDown>
+          <Box pb={{ base: "48px", md: "64px" }}>
+            <Box borderRadius="2xl" overflow="hidden" boxShadow="lg">
+              <Image
+                src={wokkahDashboard}
+                alt="WokkahLearn student dashboard showing study time, courses in progress, and recommended content"
+                w="100%"
+              />
+            </Box>
           </Box>
-        </Box>
+        </RevealOnScrollFadeDown>
 
         {/* Live product screens */}
-        <Box pb={{ base: "64px", md: "96px" }}>
-          <Text fontSize="sm" fontWeight={600} color="gray.700" mb={5}>
-            A look at the shipped student experience
-          </Text>
-          <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
-            <Box>
-              <Box borderRadius="xl" overflow="hidden" boxShadow="md" mb={2}>
-                <Image
-                  src={wokkahDashboard}
-                  alt="WokkahLearn student dashboard, desktop and mobile"
-                  w="100%"
-                />
+        <RevealOnScrollFadeDown>
+          <Box pb={{ base: "64px", md: "96px" }}>
+            <Text fontSize="sm" fontWeight={600} color="gray.700" mb={5}>
+              A look at the shipped student experience
+            </Text>
+            <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
+              <Box>
+                <Box borderRadius="xl" overflow="hidden" boxShadow="md" mb={2}>
+                  <Image
+                    src={wokkahDashboard}
+                    alt="WokkahLearn student dashboard, desktop and mobile"
+                    w="100%"
+                  />
+                </Box>
+                <Text fontSize="xs" color="gray.400">
+                  Student dashboard — desktop &amp; mobile
+                </Text>
               </Box>
-              <Text fontSize="xs" color="gray.400">
-                Student dashboard — desktop &amp; mobile
-              </Text>
-            </Box>
-            <Box>
-              <Box borderRadius="xl" overflow="hidden" boxShadow="md" mb={2}>
-                <Image
-                  src={wokkahCourseDetail}
-                  alt="WokkahLearn course detail page with syllabus, instructor profile, and enrollment"
-                  w="100%"
-                />
+              <Box>
+                <Box borderRadius="xl" overflow="hidden" boxShadow="md" mb={2}>
+                  <Image
+                    src={wokkahCourseDetail}
+                    alt="WokkahLearn course detail page with syllabus, instructor profile, and enrollment"
+                    w="100%"
+                  />
+                </Box>
+                <Text fontSize="xs" color="gray.400">
+                  Course detail &amp; enrollment — desktop &amp; mobile
+                </Text>
               </Box>
-              <Text fontSize="xs" color="gray.400">
-                Course detail &amp; enrollment — desktop &amp; mobile
-              </Text>
-            </Box>
-          </SimpleGrid>
-        </Box>
+            </SimpleGrid>
+          </Box>
+        </RevealOnScrollFadeDown>
 
         {/* ── Stats ── */}
-        <Box pb={{ base: "64px", md: "96px" }}>
-          <SimpleGrid columns={{ base: 2, md: 4 }} gap={4}>
-            <StatCard value="25+" label="Screens designed across 6 modules" />
-            <StatCard value="10M+" label="Potential users at full scale" />
-            <StatCard value="10k+" label="Active users in current pilot" />
-            <StatCard
-              value="3"
-              label="User roles: student, instructor, admin"
-            />
-          </SimpleGrid>
-        </Box>
+        <RevealOnScrollFadeDown>
+          <Box pb={{ base: "64px", md: "96px" }}>
+            <SimpleGrid columns={{ base: 2, md: 4 }} gap={4}>
+              <StatCard value="25+" label="Screens designed across 6 modules" />
+              <StatCard value="10M+" label="Potential users at full scale" />
+              <StatCard value="10k+" label="Active users in current pilot" />
+              <StatCard
+                value="3"
+                label="User roles: student, instructor, admin"
+              />
+            </SimpleGrid>
+          </Box>
+        </RevealOnScrollFadeDown>
 
         <Divider borderColor="gray.100" mb={{ base: "64px", md: "96px" }} />
 
@@ -431,22 +456,22 @@ function Project3() {
         >
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} mb={10}>
             <FindingCard
-              icon="🧩"
+              icon={Puzzle}
               title="Skills felt invisible"
               body="Students completed courses but had no tangible record of which skills they'd built or at what level. Progress was measured in completion percentages, not capability."
             />
             <FindingCard
-              icon="⚙️"
+              icon={Settings}
               title="Instructors were doing manual work that should be automated"
               body="Creating assessments, linking them to skills, and tracking results all lived in separate tools. Instructors spent more time on admin than on improving content."
             />
             <FindingCard
-              icon="📊"
+              icon={BarChart3}
               title="Analytics were too broad to act on"
               body="Platform-level metrics existed, but instructors had no way to see which specific questions tripped students up or which skills had the widest gaps."
             />
             <FindingCard
-              icon="🎯"
+              icon={Target}
               title="The path to employment was unclear"
               body="Students understood what they were learning but not why — the connection between course content and job readiness was implicit, not designed."
             />
@@ -849,65 +874,67 @@ function Project3() {
         </Section>
 
         {/* ── Outcome ── */}
-        <Box
-          bg="gray.50"
-          borderRadius="20px"
-          px={{ base: 6, md: 10 }}
-          py={{ base: 8, md: 12 }}
-          mb={{ base: "64px", md: "96px" }}
-        >
-          <Badge
-            colorScheme="gray"
-            fontSize="10px"
-            letterSpacing="0.12em"
-            textTransform="uppercase"
-            mb={4}
+        <RevealOnScrollFadeDown>
+          <Box
+            bg="gray.50"
+            borderRadius="20px"
+            px={{ base: 6, md: 10 }}
+            py={{ base: 8, md: 12 }}
+            mb={{ base: "64px", md: "96px" }}
           >
-            Outcome
-          </Badge>
-          <Heading
-            as="h2"
-            fontSize={{ base: "xl", md: "2xl" }}
-            fontWeight="600"
-            color="gray.700"
-            mb={5}
-            maxW="560px"
-            lineHeight="1.35"
-          >
-            A platform that earns trust by making progress visible
-          </Heading>
-          <Text
-            fontSize={{ base: "sm", md: "md" }}
-            color="gray.500"
-            lineHeight="1.8"
-            maxW="600px"
-            mb={8}
-          >
-            The redesigned WokkahLearn platform shipped to a pilot cohort of
-            10,000+ users. Instructors reported a significant reduction in the
-            time needed to set up new assessments. Students reported clearer
-            understanding of their skill gaps and stronger confidence in the
-            platform's connection to real employment outcomes.
-          </Text>
-          <SimpleGrid columns={{ base: 2, md: 4 }} gap={4}>
-            <StatCard
-              value="↓ 40%"
-              label="Reduction in assessment setup time (instructor feedback)"
-            />
-            <StatCard
-              value="↑ 68%"
-              label="Students reporting clear skill-to-job visibility"
-            />
-            <StatCard
-              value="92%"
-              label="Task completion rate in usability testing"
-            />
-            <StatCard
-              value="4.6/5"
-              label="Average satisfaction score from pilot cohort"
-            />
-          </SimpleGrid>
-        </Box>
+            <Badge
+              colorScheme="gray"
+              fontSize="10px"
+              letterSpacing="0.12em"
+              textTransform="uppercase"
+              mb={4}
+            >
+              Outcome
+            </Badge>
+            <Heading
+              as="h2"
+              fontSize={{ base: "xl", md: "2xl" }}
+              fontWeight="600"
+              color="gray.700"
+              mb={5}
+              maxW="560px"
+              lineHeight="1.35"
+            >
+              A platform that earns trust by making progress visible
+            </Heading>
+            <Text
+              fontSize={{ base: "sm", md: "md" }}
+              color="gray.500"
+              lineHeight="1.8"
+              maxW="600px"
+              mb={8}
+            >
+              The redesigned WokkahLearn platform shipped to a pilot cohort of
+              10,000+ users. Instructors reported a significant reduction in the
+              time needed to set up new assessments. Students reported clearer
+              understanding of their skill gaps and stronger confidence in the
+              platform's connection to real employment outcomes.
+            </Text>
+            <SimpleGrid columns={{ base: 2, md: 4 }} gap={4}>
+              <StatCard
+                value="↓ 40%"
+                label="Reduction in assessment setup time (instructor feedback)"
+              />
+              <StatCard
+                value="↑ 68%"
+                label="Students reporting clear skill-to-job visibility"
+              />
+              <StatCard
+                value="92%"
+                label="Task completion rate in usability testing"
+              />
+              <StatCard
+                value="4.6/5"
+                label="Average satisfaction score from pilot cohort"
+              />
+            </SimpleGrid>
+          </Box>
+        </RevealOnScrollFadeDown>
 
         {/* Footer spacer */}
         <Box pb={{ base: "64px", md: "96px" }} />
