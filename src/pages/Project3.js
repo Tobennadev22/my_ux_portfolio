@@ -1,3 +1,4 @@
+import { Link as ReactRouterLink } from "react-router-dom";
 import {
   Box,
   Container,
@@ -8,11 +9,13 @@ import {
   Button,
   Divider,
   Image,
+  Link as ChakraLink,
   SimpleGrid,
 } from "@chakra-ui/react";
 
-import { Puzzle, Settings, BarChart3, Target } from "lucide-react";
+import { Puzzle, Settings, BarChart3, Target, ArrowLeft } from "lucide-react";
 import RevealOnScrollFadeDown from "../util/RevealOnScrollFadeDown";
+import wokkahHero from "../assets/wokkah-hero-mockup.png";
 import wokkahDashboard from "../assets/wokkah-0.jpg";
 import wokkahCourseDetail from "../assets/wokkah-1.jpg";
 
@@ -170,6 +173,21 @@ function Project3() {
           pt={{ base: "72px", md: "96px" }}
           pb={{ base: "48px", md: "72px" }}
         >
+          <Flex alignItems="center" gap={1} mb={6}>
+            <ArrowLeft size={16} color="var(--chakra-colors-dark-700)" />
+            <ChakraLink
+              as={ReactRouterLink}
+              to="/"
+              textDecoration="none"
+              color="gray.500"
+              fontSize="sm"
+              fontWeight={500}
+              _hover={{ color: "gray.800" }}
+            >
+              Back to Home
+            </ChakraLink>
+          </Flex>
+
           <Badge
             colorScheme="gray"
             fontSize="10px"
@@ -259,8 +277,8 @@ function Project3() {
           <Box pb={{ base: "48px", md: "64px" }}>
             <Box borderRadius="2xl" overflow="hidden" boxShadow="lg">
               <Image
-                src={wokkahDashboard}
-                alt="WokkahLearn student dashboard showing study time, courses in progress, and recommended content"
+                src={wokkahHero}
+                alt="WokkahLearn course content screen on a laptop, showing an in-progress AI course video and module list"
                 w="100%"
               />
             </Box>
