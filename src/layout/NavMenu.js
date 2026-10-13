@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link as ReactRouterLink, useLocation } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import "../styles/Global.css";
@@ -14,6 +15,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { Menu, X, ExternalLink, Download } from "lucide-react";
+import logo from "../assets/Tobelogo.png";
 
 const LINKEDIN_URL =
   "https://www.linkedin.com/in/ekwealor-tobechukwu-100113114/";
@@ -48,27 +50,46 @@ function NavItem({ to, children, onClick }) {
 
 export default function NavMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <Box
-      bg="#fff"
+      bg={scrolled ? "rgba(255, 255, 255, 0.7)" : "#fff"}
       position="sticky"
       top="0"
       zIndex="1000"
       borderBottom="1px"
-      borderBottomColor="#eee"
+      borderBottomColor={scrolled ? "rgba(238, 238, 238, 0.7)" : "#eee"}
+      transition="background-color 0.25s ease, backdrop-filter 0.25s ease, box-shadow 0.25s ease"
+      boxShadow={scrolled ? "0 8px 24px rgba(0,0,0,0.06)" : "none"}
+      sx={{
+        backdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
+      }}
     >
       <Container maxW={["container.sm", "container.xl"]}>
         <Flex h={16} alignItems="center" justifyContent="space-between">
-          <ChakraLink as={ReactRouterLink} to="/" textDecoration="none">
-            <Text
-              color="gray.800"
-              fontWeight={600}
-              fontSize="20px"
-              fontFamily="heading"
-            >
-              Ekwealor Tobechukwu
-            </Text>
+          <ChakraLink
+            as={ReactRouterLink}
+            to="/"
+            textDecoration="none"
+            _hover={{ textDecoration: "none" }}
+          >
+            <Box
+              as="img"
+              src={logo}
+              alt="Ekwealor Tobechukwu logo"
+              h="36px"
+              w="36px"
+              borderRadius="8px"
+            />
           </ChakraLink>
 
           <HStack spacing={6} alignItems="center">

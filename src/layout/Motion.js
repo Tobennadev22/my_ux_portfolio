@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 const steps = [
   "One more thing before you go.",
   "Design is only half the job.",
-  "I also build the front end — this portfolio included.",
+  "I also build the front end, this portfolio included.",
   "React, Chakra UI, and a healthy respect for the handoff.",
 ];
 

@@ -58,12 +58,13 @@ button:focus-visible {
   border-radius: 100px;
   font-size: 13px;
   font-weight: 500;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 
 .skillbadge:hover {
-  border-color: #b85c38;
-  color: #b85c38;
+  border-color: #5a7a00;
+  background-color: #f5f9e3;
+  color: #486300;
 }
 
 .alluserimg {

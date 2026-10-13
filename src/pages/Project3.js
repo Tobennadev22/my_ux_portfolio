@@ -72,10 +72,14 @@ function Section({ eyebrow, title, children, pb }) {
       <Box as="section" pb={pb || { base: "64px", md: "96px" }}>
         {eyebrow && (
           <Badge
-            colorScheme="gray"
+            bg="accent.50"
+            color="accent.700"
             fontSize="10px"
             letterSpacing="0.12em"
             textTransform="uppercase"
+            borderRadius="full"
+            px="8px"
+            py="3px"
             mb={3}
           >
             {eyebrow}
@@ -143,7 +147,7 @@ function IterationCard({ version, change, outcome, imageSrc }) {
   return (
     <Box>
       <PlaceholderImage
-        label={imageSrc ? undefined : `${version} — replace with your screen`}
+        label={imageSrc ? undefined : `${version}: replace with your screen`}
         src={imageSrc}
         aspectRatio="4/3"
       />
@@ -189,10 +193,14 @@ function Project3() {
           </Flex>
 
           <Badge
-            colorScheme="gray"
+            bg="accent.50"
+            color="accent.700"
             fontSize="10px"
             letterSpacing="0.12em"
             textTransform="uppercase"
+            borderRadius="full"
+            px="8px"
+            py="3px"
             mb={4}
           >
             UX / Product Design
@@ -212,16 +220,16 @@ function Project3() {
             lineHeight="1.35"
             mb={3}
           >
-            WokkahLearn — Designing an AI-powered LMS that gets people hired
+            WokkahLearn: Designing an AI powered LMS that gets people hired
           </Heading>
           <Text
             fontSize={{ base: "sm", md: "md" }}
             color="gray.500"
             maxW="600px"
-            lineHeight="1.8"
+            lineHeight="1.5"
             mb={10}
           >
-            A full end-to-end UX case study covering the skills management
+            A full end to end UX case study covering the skills management
             system, assessment engine, learning paths, capstone projects, and
             analytics dashboard for WokkahLearn's platform redesign.
           </Text>
@@ -278,7 +286,7 @@ function Project3() {
             <Box borderRadius="2xl" overflow="hidden" boxShadow="lg">
               <Image
                 src={wokkahHero}
-                alt="WokkahLearn course content screen on a laptop, showing an in-progress AI course video and module list"
+                alt="WokkahLearn course content screen on a laptop, showing an in progress AI course video and module list"
                 w="100%"
               />
             </Box>
@@ -301,7 +309,7 @@ function Project3() {
                   />
                 </Box>
                 <Text fontSize="xs" color="gray.400">
-                  Student dashboard — desktop &amp; mobile
+                  Student dashboard: desktop &amp; mobile
                 </Text>
               </Box>
               <Box>
@@ -313,7 +321,7 @@ function Project3() {
                   />
                 </Box>
                 <Text fontSize="xs" color="gray.400">
-                  Course detail &amp; enrollment — desktop &amp; mobile
+                  Course detail &amp; enrollment: desktop &amp; mobile
                 </Text>
               </Box>
             </SimpleGrid>
@@ -339,7 +347,7 @@ function Project3() {
 
         {/* ── Problem ── */}
         <Section
-          eyebrow="01 — Problem"
+          eyebrow="01: Problem"
           title="The platform was growing fast, but the experience wasn't keeping up"
         >
           <Text
@@ -349,8 +357,8 @@ function Project3() {
             maxW="680px"
             mb={8}
           >
-            WokkahLearn had strong product-market fit, connecting learners with
-            employers through an AI-powered curriculum. But as the platform
+            WokkahLearn had strong product market fit, connecting learners with
+            employers through an AI powered curriculum. But as the platform
             scaled, instructors were struggling to manage skills and
             assessments, and students had no clear visibility into their own
             progress or how their learning mapped to real job outcomes.
@@ -365,17 +373,17 @@ function Project3() {
             The existing interface mixed multiple user roles in a single
             confusing dashboard, had no structured assessment flow, and lacked
             any connection between completed courses and demonstrable,
-            employer-facing skills.
+            employer facing skills.
           </Text>
           <PlaceholderImage
-            label="Problem context — current state screenshot or annotated pain point map"
+            label="Problem context: current state screenshot or annotated pain point map"
             aspectRatio="16/9"
           />
         </Section>
 
         {/* ── Goal ── */}
         <Section
-          eyebrow="02 — Goal"
+          eyebrow="02: Goal"
           title="Define a system that serves three roles without leaving any one of them behind"
         >
           <Text
@@ -386,7 +394,7 @@ function Project3() {
             mb={8}
           >
             The redesign had one north star: make it effortless for instructors
-            to build structured, skill-mapped learning journeys — and make it
+            to build structured, skill mapped learning journeys, and make it
             equally effortless for students to see exactly where they stand and
             what to do next.
           </Text>
@@ -419,7 +427,7 @@ function Project3() {
 
         {/* ── Research ── */}
         <Section
-          eyebrow="03 — Research"
+          eyebrow="03: Research"
           title="Understanding how instructors and students actually think about learning"
         >
           <Text
@@ -429,7 +437,7 @@ function Project3() {
             maxW="680px"
             mb={8}
           >
-            Before touching the interface, I mapped out the full ecosystem — who
+            Before touching the interface, I mapped out the full ecosystem: who
             the users were, what workflows they were trying to complete, and
             where existing LMS tools were failing them. This involved a
             competitive review of platforms like Moodle, Coursera for Business,
@@ -439,11 +447,11 @@ function Project3() {
 
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={6} mb={10}>
             <PlaceholderImage
-              label="Research method — user interview notes or affinity map"
+              label="Research method: user interview notes or affinity map"
               aspectRatio="4/3"
             />
             <PlaceholderImage
-              label="Competitive audit — comparison matrix of existing LMS platforms"
+              label="Competitive audit: comparison matrix of existing LMS platforms"
               aspectRatio="4/3"
             />
           </SimpleGrid>
@@ -456,7 +464,7 @@ function Project3() {
               "User interviews (10 participants)",
               "Competitive audit (6 platforms)",
               "Task analysis & flow mapping",
-              "Survey — 40 student responses",
+              "Survey: 40 student responses",
             ].map((item) => (
               <Box key={item} bg="gray.50" borderRadius="10px" px={4} py={3}>
                 <Text fontSize="xs" color="gray.600" lineHeight="1.6">
@@ -469,7 +477,7 @@ function Project3() {
 
         {/* ── Findings ── */}
         <Section
-          eyebrow="04 — Findings"
+          eyebrow="04: Findings"
           title="Four patterns kept coming up across every interview"
         >
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} mb={10}>
@@ -486,23 +494,23 @@ function Project3() {
             <FindingCard
               icon={BarChart3}
               title="Analytics were too broad to act on"
-              body="Platform-level metrics existed, but instructors had no way to see which specific questions tripped students up or which skills had the widest gaps."
+              body="Platform level metrics existed, but instructors had no way to see which specific questions tripped students up or which skills had the widest gaps."
             />
             <FindingCard
               icon={Target}
               title="The path to employment was unclear"
-              body="Students understood what they were learning but not why — the connection between course content and job readiness was implicit, not designed."
+              body="Students understood what they were learning but not why: the connection between course content and job readiness was implicit, not designed."
             />
           </SimpleGrid>
           <PlaceholderImage
-            label="Findings synthesis — journey map or 'how might we' board"
+            label="Findings synthesis: journey map or 'how might we' board"
             aspectRatio="16/7"
           />
         </Section>
 
         {/* ── Solution ── */}
         <Section
-          eyebrow="05 — Solution"
+          eyebrow="05: Solution"
           title="A modular system built around skills as the connective tissue"
         >
           <Text
@@ -512,7 +520,7 @@ function Project3() {
             maxW="680px"
             mb={10}
           >
-            The solution wasn't a single screen — it was a coherent system where
+            The solution wasn't a single screen: it was a coherent system where
             skills sit at the center, and every other module (assessments,
             paths, capstones, analytics) links back to them. Each role gets a
             dedicated experience, but they all operate on the same underlying
@@ -524,32 +532,32 @@ function Project3() {
             {
               module: "Skills Management",
               description:
-                "Instructors can create, categorize, and maintain a standardized skill library. Each skill has a difficulty level, learning objectives, assessment criteria, and tags — making it searchable and reusable across the platform.",
-              imagelabel: "Skills dashboard — final design",
+                "Instructors can create, categorize, and maintain a standardized skill library. Each skill has a difficulty level, learning objectives, assessment criteria, and tags, making it searchable and reusable across the platform.",
+              imagelabel: "Skills dashboard: final design",
             },
             {
               module: "Assessment Engine",
               description:
-                "A multi-type assessment builder with AI-assisted question generation. Assessments link directly to skills, so every score maps back to a student's skill profile. Instructors get question-level analytics; students get skill-specific feedback.",
-              imagelabel: "Assessment creation flow — final design",
+                "A multi type assessment builder with AI assisted question generation. Assessments link directly to skills, so every score maps back to a student's skill profile. Instructors get question level analytics; students get skill specific feedback.",
+              imagelabel: "Assessment creation flow: final design",
             },
             {
               module: "Learning Paths",
               description:
                 "Instructors sequence courses into structured paths with prerequisites, milestones, and capstone projects. Students see a clear timeline with what's complete, what's next, and how far along each skill they've progressed.",
-              imagelabel: "Learning path builder — final design",
+              imagelabel: "Learning path builder: final design",
             },
             {
               module: "Capstone Projects",
               description:
-                "End-of-path projects with a structured submission and review workflow. Students upload deliverables; instructors score against defined rubrics. Completed capstones become portfolio artefacts.",
-              imagelabel: "Capstone submission interface — final design",
+                "End of path projects with a structured submission and review workflow. Students upload deliverables; instructors score against defined rubrics. Completed capstones become portfolio artefacts.",
+              imagelabel: "Capstone submission interface: final design",
             },
             {
               module: "Analytics",
               description:
-                "Two analytics views: instructors see assessment performance, skill gaps, and student progress with drill-down to question level. Students see their own skill development over time with clear next-step recommendations.",
-              imagelabel: "Analytics dashboard — final design",
+                "Two analytics views: instructors see assessment performance, skill gaps, and student progress with drill down to question level. Students see their own skill development over time with clear next step recommendations.",
+              imagelabel: "Analytics dashboard: final design",
             },
           ].map(({ module, description, imagelabel }, i) => (
             <Box key={module} mb={{ base: "56px", md: "80px" }}>
@@ -590,8 +598,8 @@ function Project3() {
 
         {/* ── Wireframes ── */}
         <Section
-          eyebrow="06 — Wireframes"
-          title="Low-fidelity sketches to pressure-test the structure"
+          eyebrow="06: Wireframes"
+          title="Low fidelity sketches to pressure test the structure"
         >
           <Text
             fontSize={{ base: "sm", md: "md" }}
@@ -601,14 +609,14 @@ function Project3() {
             mb={10}
           >
             Before moving to visual design, I worked through the key flows in
-            wireframe form — focusing purely on information architecture,
+            wireframe form, focusing purely on information architecture,
             hierarchy, and task completion. The goal was to validate layout
             logic before any visual decisions were locked in.
           </Text>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap={6} mb={8}>
             <Box>
               <PlaceholderImage
-                label="Wireframe — Skills Dashboard"
+                label="Wireframe: Skills Dashboard"
                 aspectRatio="3/4"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -617,7 +625,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Wireframe — Assessment Builder"
+                label="Wireframe: Assessment Builder"
                 aspectRatio="3/4"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -626,7 +634,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Wireframe — Student Progress View"
+                label="Wireframe: Student Progress View"
                 aspectRatio="3/4"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -635,7 +643,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Wireframe — Learning Path Builder"
+                label="Wireframe: Learning Path Builder"
                 aspectRatio="3/4"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -644,7 +652,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Wireframe — Assessment Taking Interface"
+                label="Wireframe: Assessment Taking Interface"
                 aspectRatio="3/4"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -653,7 +661,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Wireframe — Analytics Dashboard"
+                label="Wireframe: Analytics Dashboard"
                 aspectRatio="3/4"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -665,7 +673,7 @@ function Project3() {
 
         {/* ── High Fidelity ── */}
         <Section
-          eyebrow="07 — High Fidelity"
+          eyebrow="07: High Fidelity"
           title="Bringing the system to life with visual design"
         >
           <Text
@@ -675,29 +683,29 @@ function Project3() {
             maxW="680px"
             mb={10}
           >
-            With structure validated, I moved into high-fidelity design —
+            With structure validated, I moved into high fidelity design,
             establishing the visual language, component library, and interaction
             patterns that would carry consistently across all 25+ screens.
           </Text>
           <PlaceholderImage
-            label="Hi-fi overview — design system / component library spread"
+            label="Hi fi overview: design system / component library spread"
             aspectRatio="16/7"
           />
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={6} mt={6}>
             <PlaceholderImage
-              label="Hi-fi — Instructor skills management screen"
+              label="Hi fi: Instructor skills management screen"
               aspectRatio="4/3"
             />
             <PlaceholderImage
-              label="Hi-fi — Student progress dashboard"
+              label="Hi fi: Student progress dashboard"
               aspectRatio="4/3"
             />
             <PlaceholderImage
-              label="Hi-fi — AI question generation interface"
+              label="Hi fi: AI question generation interface"
               aspectRatio="4/3"
             />
             <PlaceholderImage
-              label="Hi-fi — Assessment taking screen"
+              label="Hi fi: Assessment taking screen"
               aspectRatio="4/3"
             />
           </SimpleGrid>
@@ -705,8 +713,8 @@ function Project3() {
 
         {/* ── Prototype ── */}
         <Section
-          eyebrow="08 — Prototype"
-          title="Testing the end-to-end flow before handoff"
+          eyebrow="08: Prototype"
+          title="Testing the end to end flow before handoff"
         >
           <Text
             fontSize={{ base: "sm", md: "md" }}
@@ -723,7 +731,7 @@ function Project3() {
             usability testing with six participants.
           </Text>
           <PlaceholderImage
-            label="Prototype preview — Figma prototype embed or flow walkthrough screenshot"
+            label="Prototype preview: Figma prototype embed or flow walkthrough screenshot"
             aspectRatio="16/8"
           />
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} mt={8}>
@@ -752,7 +760,7 @@ function Project3() {
 
         {/* ── Iterations ── */}
         <Section
-          eyebrow="09 — Iterations"
+          eyebrow="09: Iterations"
           title="What the testing revealed, and what changed"
         >
           <Text
@@ -774,23 +782,23 @@ function Project3() {
             <IterationCard
               version="v2 → v3"
               change="Assessment timer made persistent"
-              outcome="Students didn't notice the timer in the top bar during testing. Moved to a fixed sticky position with a low-urgency colour shift when under 5 minutes remain."
+              outcome="Students didn't notice the timer in the top bar during testing. Moved to a fixed sticky position with a low urgency colour shift when under 5 minutes remain."
             />
             <IterationCard
               version="v2 → v3"
               change="Path progress redesigned around milestones"
-              outcome="A linear progress bar didn't convey phase structure. Replaced with a step-by-step timeline showing course clusters, assessment gates, and the capstone as a final milestone."
+              outcome="A linear progress bar didn't convey phase structure. Replaced with a step by step timeline showing course clusters, assessment gates, and the capstone as a final milestone."
             />
           </SimpleGrid>
           <PlaceholderImage
-            label="Before / after comparison — iteration spread"
+            label="Before / after comparison: iteration spread"
             aspectRatio="16/7"
           />
         </Section>
 
         {/* ── Final Design ── */}
         <Section
-          eyebrow="10 — Final Design"
+          eyebrow="10: Final Design"
           title="The complete WokkahLearn design system, ready for handoff"
         >
           <Text
@@ -808,14 +816,14 @@ function Project3() {
 
           {/* Final screens gallery */}
           <PlaceholderImage
-            label="Final design — full platform overview / hero spread"
+            label="Final design: full platform overview / hero spread"
             aspectRatio="16/7"
           />
 
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={6} mt={6} mb={6}>
             <Box>
               <PlaceholderImage
-                label="Final — Skills Dashboard (Instructor)"
+                label="Final: Skills Dashboard (Instructor)"
                 aspectRatio="4/3"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -824,7 +832,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Final — Student Progress Dashboard"
+                label="Final: Student Progress Dashboard"
                 aspectRatio="4/3"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -833,7 +841,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Final — Assessment Taking Interface"
+                label="Final: Assessment Taking Interface"
                 aspectRatio="4/3"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -842,7 +850,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Final — Learning Path (Student view)"
+                label="Final: Learning Path (Student view)"
                 aspectRatio="4/3"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -851,7 +859,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Final — Capstone Submission"
+                label="Final: Capstone Submission"
                 aspectRatio="4/3"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -860,7 +868,7 @@ function Project3() {
             </Box>
             <Box>
               <PlaceholderImage
-                label="Final — Instructor Analytics"
+                label="Final: Instructor Analytics"
                 aspectRatio="4/3"
               />
               <Text fontSize="xs" color="gray.400" mt={2}>
@@ -875,16 +883,16 @@ function Project3() {
           </Text>
           <SimpleGrid columns={{ base: 2, sm: 3, md: 5 }} gap={4}>
             {[
-              "Mobile — Home",
-              "Mobile — Skills",
-              "Mobile — Assessment",
-              "Mobile — Path Progress",
-              "Mobile — Results",
+              "Mobile: Home",
+              "Mobile: Skills",
+              "Mobile: Assessment",
+              "Mobile: Path Progress",
+              "Mobile: Results",
             ].map((label) => (
               <Box key={label}>
                 <PlaceholderImage label={label} aspectRatio="9/19" />
                 <Text fontSize="xs" color="gray.400" mt={2}>
-                  {label.replace("Mobile — ", "")}
+                  {label.replace("Mobile: ", "")}
                 </Text>
               </Box>
             ))}
@@ -901,10 +909,14 @@ function Project3() {
             mb={{ base: "64px", md: "96px" }}
           >
             <Badge
-              colorScheme="gray"
+              bg="accent.50"
+              color="accent.700"
               fontSize="10px"
               letterSpacing="0.12em"
               textTransform="uppercase"
+              borderRadius="full"
+              px="8px"
+              py="3px"
               mb={4}
             >
               Outcome
@@ -940,7 +952,7 @@ function Project3() {
               />
               <StatCard
                 value="↑ 68%"
-                label="Students reporting clear skill-to-job visibility"
+                label="Students reporting clear skill to job visibility"
               />
               <StatCard
                 value="92%"

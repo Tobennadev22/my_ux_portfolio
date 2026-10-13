@@ -16,19 +16,19 @@ const CustomTheme = extendTheme({
       800: "#18181B",
       900: "#09090B",
     },
-    // Signature accent — a warm clay/terracotta used sparingly across CTAs,
-    // badges, and links against the neutral scale above.
+    // Signature accent — a lemon-green used sparingly across CTAs, badges,
+    // and links against the neutral scale above.
     accent: {
-      50: "#FBF1EC",
-      100: "#F5DFD2",
-      200: "#E9BCA0",
-      300: "#DB9A72",
-      400: "#CC7A4C",
-      500: "#B85C38",
-      600: "#96472A",
-      700: "#753620",
-      800: "#552618",
-      900: "#37170F",
+      50: "#F5F9E3",
+      100: "#E9F2C2",
+      200: "#D3E495",
+      300: "#BBD667",
+      400: "#9EC53E",
+      500: "#7FA61A",
+      600: "#5A7A00",
+      700: "#486300",
+      800: "#364A00",
+      900: "#253300",
     },
     // Uniform icon/utility color, used across every icon on the site
     dark: {
@@ -45,8 +45,8 @@ const CustomTheme = extendTheme({
     },
   },
   fonts: {
-    heading: "'Roboto Serif', serif",
-    body: "'Inter', sans-serif",
+    heading: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    body: "'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
   },
   styles: {
     global: {

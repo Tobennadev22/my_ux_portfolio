@@ -14,6 +14,7 @@ import RevealOnScrollFadeDown from "../util/RevealOnScrollFadeDown";
 import project1 from "../assets/monibag-mobile.jpg";
 import project2 from "../assets/medteqpro-admin-fixed.png";
 import project3 from "../assets/wokkah-Thumbnail.png";
+import project4 from "../assets/tmras-laptop.png";
 
 // ─── Data ─────────────────────────────────────────────────
 
@@ -38,6 +39,13 @@ const PROJECTS = [
     title: "Monibag",
     description:
       "A remittance app that helps Nigerians in the diaspora send money home quickly and easily.",
+  },
+  {
+    id: "project4",
+    image: project4,
+    title: "TMRAS",
+    description:
+      "A treasury management platform built for the Federal Government of Nigeria, giving agencies visibility and control over budgets, disbursements, and reporting.",
   },
 ];
 
@@ -152,16 +160,20 @@ function Main() {
         {/* Header */}
         <RevealOnScrollFadeDown>
           <Box textAlign="center" mb={{ base: 10, md: 14 }}>
-            <Text
-              fontSize="xs"
+            <Badge
+              bg="accent.50"
+              color="accent.700"
+              fontSize="10px"
               fontWeight={600}
-              letterSpacing="0.14em"
+              letterSpacing="0.1em"
               textTransform="uppercase"
-              color="accent.600"
+              px="8px"
+              py="3px"
+              borderRadius="full"
               mb={3}
             >
               Selected Work
-            </Text>
+            </Badge>
             <Heading
               as="h2"
               fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}

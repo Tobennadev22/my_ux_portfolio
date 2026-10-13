@@ -34,12 +34,12 @@ const ROLES = [
   {
     name: "Super Admin",
     description:
-      "Oversees every hospital on the platform — registrations, active/inactive status, and subscriptions, from one dashboard.",
+      "Oversees every hospital on the platform: registrations, active/inactive status, and subscriptions, from one dashboard.",
   },
   {
     name: "Hospital Admin",
     description:
-      "Manages a single hospital's staff, departments, and day-to-day settings.",
+      "Manages a single hospital's staff, departments, and day to day settings.",
   },
   {
     name: "Doctor",
@@ -80,17 +80,21 @@ function Roles() {
     <Box bg="#ffffff" py={[12, 16, 20]}>
       <Container maxW="container.xl" px={[5, 8, 12]}>
         <RevealOnScrollFadeDown>
-          <Text
-            fontSize="xs"
-            fontWeight={600}
-            letterSpacing="0.12em"
-            textTransform="uppercase"
-            color="accent.600"
-            mb={3}
-            textAlign="center"
-          >
-            The System
-          </Text>
+          <Box textAlign="center" mb={3}>
+            <Badge
+              bg="accent.50"
+              color="accent.700"
+              fontSize="10px"
+              fontWeight={600}
+              letterSpacing="0.1em"
+              textTransform="uppercase"
+              px="8px"
+              py="3px"
+              borderRadius="full"
+            >
+              The System
+            </Badge>
+          </Box>
           <Heading
             fontSize={["2xl", "3xl", "4xl"]}
             fontWeight="semibold"
@@ -147,16 +151,20 @@ function HeadingSection() {
             </ChakraLink>
           </Flex>
 
-          <Text
-            fontSize="xs"
+          <Badge
+            bg="accent.50"
+            color="accent.700"
+            fontSize="10px"
             fontWeight={600}
-            letterSpacing="0.12em"
+            letterSpacing="0.1em"
             textTransform="uppercase"
-            color="accent.600"
+            px="8px"
+            py="3px"
+            borderRadius="full"
             mb={3}
           >
             UX Case Study
-          </Text>
+          </Badge>
 
           <Heading
             fontSize={["3xl", "4xl", "5xl"]}
@@ -171,12 +179,12 @@ function HeadingSection() {
           <Text
             fontSize={["md", "lg", "xl"]}
             color="gray.500"
-            lineHeight="1.7"
+            lineHeight="1.5"
             maxW="620px"
             mb={8}
           >
             A hospital and patient management platform connecting Nigerian
-            hospitals and patients — making it stress-free to manage records
+            hospitals and patients, making it stress free to manage records
             and share data across the Medteqpro ecosystem.
           </Text>
 
@@ -232,13 +240,13 @@ function Overview() {
             <OverviewItem label="The Product">
               Medteqpro, built by Sioteq Technologies, is a healthtech
               platform that gives Nigerian hospitals a shared system for
-              managing patient records, staff, and day-to-day clinical
-              operations — replacing fragmented, paper-heavy workflows.
+              managing patient records, staff, and day to day clinical
+              operations, replacing fragmented, paper heavy workflows.
             </OverviewItem>
             <OverviewItem label="My Role">
-              UI/UX Designer — designed across all eight roles in the
+              UI/UX Designer who designed across all eight roles in the
               system, from super admin down to the patient mobile app, from
-              information architecture through to high-fidelity screens.
+              information architecture through to high fidelity screens.
             </OverviewItem>
           </Flex>
         </RevealOnScrollFadeDown>
@@ -246,13 +254,13 @@ function Overview() {
         <RevealOnScrollFadeDown>
           <Flex direction={["column", "column", "row"]} gap={[8, 10, 16]} mb={[8, 10, 14]}>
             <OverviewItem label="Built For">
-              Hospitals, clinics, and healthcare professionals — teams that
+              Hospitals, clinics, and healthcare professionals: teams that
               needed one shared system instead of disconnected tools and
               paper trails.
             </OverviewItem>
             <OverviewItem label="What It Leads With">
-              Enterprise-grade, encrypted security alongside operational
-              efficiency — trust had to come first for a system holding
+              Enterprise grade, encrypted security alongside operational
+              efficiency. Trust had to come first for a system holding
               patient data.
             </OverviewItem>
           </Flex>
@@ -330,17 +338,21 @@ function Screens() {
     <Box bg="#ffffff" py={[12, 16, 24]}>
       <Container maxW="container.xl" px={[5, 8, 12]}>
         <RevealOnScrollFadeDown>
-          <Text
-            fontSize="xs"
-            fontWeight={600}
-            letterSpacing="0.12em"
-            textTransform="uppercase"
-            color="accent.600"
-            mb={3}
-            textAlign="center"
-          >
-            The Design
-          </Text>
+          <Box textAlign="center" mb={3}>
+            <Badge
+              bg="accent.50"
+              color="accent.700"
+              fontSize="10px"
+              fontWeight={600}
+              letterSpacing="0.1em"
+              textTransform="uppercase"
+              px="8px"
+              py="3px"
+              borderRadius="full"
+            >
+              The Design
+            </Badge>
+          </Box>
           <Heading
             fontSize={["2xl", "3xl", "4xl"]}
             fontWeight="semibold"
@@ -357,13 +369,13 @@ function Screens() {
             image={hospitalAdmin}
             badge="Super Admin"
             title="Managing every hospital at a glance"
-            description="A platform-wide overview for operators — active and inactive hospitals, staff, and subscription status, all in one dashboard."
+            description="A platform wide overview for operators: active and inactive hospitals, staff, and subscription status, all in one dashboard."
           />
           <ScreenCard
             image={patientDirectory}
             badge="Front Desk"
             title="A searchable patient directory"
-            description="Every registered patient — individual or family — searchable by name or ID, with clear status and registration details for staff on the move."
+            description="Every registered patient (individual or family), searchable by name or ID, with clear status and registration details for staff on the move."
           />
         </SimpleGrid>
       </Container>
@@ -419,11 +431,11 @@ function ComingSoon() {
             textAlign="center"
           >
             <Heading fontSize={["xl", "2xl"]} fontWeight={600} color="gray.800" mb={3}>
-              The full write-up — research, wireframes, and iterations — is on its way
+              The full write up (research, wireframes, and iterations) is on its way
             </Heading>
             <Text fontSize={["sm", "md"]} color="gray.500" maxW="560px" mx="auto">
-              In the meantime, explore the live product or reach out directly —
-              happy to walk through the process.
+              In the meantime, explore the live product or reach out directly.
+              Happy to walk through the process.
             </Text>
           </Box>
         </RevealOnScrollFadeDown>

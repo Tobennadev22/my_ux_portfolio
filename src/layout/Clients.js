@@ -1,4 +1,4 @@
-import { Container, Heading, Box, Flex, Text } from "@chakra-ui/react";
+import { Container, Heading, Box, Flex, Text, Badge } from "@chakra-ui/react";
 import Gbovo from "../assets/gbovo.png";
 import SioTeq from "../assets/Sioteq.png";
 import Nutm from "../assets/NUTM.png";
@@ -6,18 +6,21 @@ import Wokkah from "../assets/Wokkah.png";
 function Clients() {
   return (
     <Container maxW="container.xl" px={{ base: 4, md: 10 }}>
-      <Text
-        fontSize="xs"
-        fontWeight={600}
-        letterSpacing="0.14em"
-        textTransform="uppercase"
-        color="accent.600"
-        textAlign="center"
-        mt={10}
-        mb={3}
-      >
-        Trusted by
-      </Text>
+      <Box textAlign="center" mt={10} mb={3}>
+        <Badge
+          bg="accent.50"
+          color="accent.700"
+          fontSize="10px"
+          fontWeight={600}
+          letterSpacing="0.1em"
+          textTransform="uppercase"
+          px="8px"
+          py="3px"
+          borderRadius="full"
+        >
+          Trusted by
+        </Badge>
+      </Box>
       <Heading
         fontWeight={600}
         fontSize={["xl", "2xl", "2xl"]}
