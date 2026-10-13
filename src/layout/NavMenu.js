@@ -4,7 +4,6 @@ import { Link as ChakraLink } from "@chakra-ui/react";
 import "../styles/Global.css";
 import {
   Box,
-  Text,
   Container,
   Flex,
   Link,

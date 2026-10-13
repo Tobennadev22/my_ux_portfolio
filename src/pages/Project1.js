@@ -34,8 +34,6 @@ import {
 
 import ukUsers from "../assets/allukusers.png";
 import monibagSketch from "../assets/Monibag-sketch.jpeg";
-import monibagHome from "../assets/monibag-mobile-2.jpg";
-import monibagConvert from "../assets/monibag-mobile-1.jpg";
 import monibagFlow from "../assets/Monibagproduct.png";
 import monibagCloseup from "../assets/monibag-mobile-bold.jpg";
 import monibagAddMoney from "../assets/Add Money-High-fi.png";

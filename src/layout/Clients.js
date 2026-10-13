@@ -1,4 +1,4 @@
-import { Container, Heading, Box, Flex, Text, Badge } from "@chakra-ui/react";
+import { Container, Heading, Box, Flex, Badge } from "@chakra-ui/react";
 import Gbovo from "../assets/gbovo.png";
 import SioTeq from "../assets/Sioteq.png";
 import Nutm from "../assets/NUTM.png";
